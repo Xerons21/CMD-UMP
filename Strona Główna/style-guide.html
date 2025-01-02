@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html>
+<body style="font-family: Arial, sans-serif; margin: 0; line-height: 1.6;">
+    <div style="width: 95%; max-width: 1200px; margin: 0 auto; padding: 20px;">
+        
+        <h1>Style Guide CMD</h1>
+
+        <!-- Kolory -->
+        <section>
+            <h2>Kolory</h2>
+            <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                <div>
+                    <div style="width: 100px; height: 100px; background: #3498db;"></div>
+                    <p>Primary Blue: #3498db</p>
+                </div>
+                <div>
+                    <div style="width: 100px; height: 100px; background: #2980b9;"></div>
+                    <p>Secondary Blue: #2980b9</p>
+                </div>
+                <div>
+                    <div style="width: 100px; height: 100px; background: #27ae60;"></div>
+                    <p>Green: #27ae60</p>
+                </div>
+                <div>
+                    <div style="width: 100px; height: 100px; background: #e74c3c;"></div>
+                    <p>Red: #e74c3c</p>
+                </div>
+                <div>
+                    <div style="width: 100px; height: 100px; background: #f1c40f;"></div>
+                    <p>Yellow: #f1c40f</p>
+                </div>
+                <div>
+                    <div style="width: 100px; height: 100px; background: #2c3e50;"></div>
+                    <p>Text Dark: #2c3e50</p>
+                </div>
+                <div>
+                    <div style="width: 100px; height: 100px; background: #7f8c8d;"></div>
+                    <p>Text Light: #7f8c8d</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Typografia -->
+        <section>
+            <h2>Typografia</h2>
+            
+            <h3>Nagłówki</h3>
+            <div style="color: #2980b9; font-size: clamp(1.2em, 4vw, 1.4em);">Główny nagłówek (h2)</div>
+            <div style="color: #2980b9; font-size: clamp(1.1em, 3.5vw, 1.3em);">Podtytuł (h3)</div>
+            
+            <h3>Tekst</h3>
+            <div style="font-size: clamp(0.9em, 3vw, 1em);">Tekst podstawowy</div>
+            <div style="font-size: clamp(0.8em, 2vw, 0.85em);">Tekst w kafelkach</div>
+            <div style="font-size: 0.75em; color: #7f8c8d;">Tekst pomocniczy</div>
+        </section>
+
+        <!-- Komponenty -->
+        <section>
+            <h2>Komponenty</h2>
+
+            <!-- Kafelek dokumentu -->
+            <div style="
+                background: rgba(255,255,255,0.7); 
+                padding: 12px; 
+                border-radius: 10px; 
+                width: 300px;
+                margin: 20px 0;
+                box-shadow: 0 3px 6px rgba(0,0,0,0.1);"
+            >
+                <div style="display: flex; align-items: center;">
+                    <img src="icon.png" style="width: 36px; height: 36px; margin-left: -4px; margin-right: 10px;">
+                    <span style="flex: 1;">
+                        <span style="font-size: clamp(0.8em, 2vw, 0.85em); display: block;">Przykładowy dokument</span>
+                        <span style="font-size: 0.75em; color: #7f8c8d;">Kliknij aby pobrać (PDF)</span>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Sekcja z gradientem -->
+            <div style="
+                background: linear-gradient(135deg, #e8f4f8 0%, #ffffff 100%);
+                border-radius: 15px;
+                padding: 20px;
+                box-shadow: 0 4px 8px rgba(35,183,245,0.15);
+                border-left: 8px solid #3498db;
+                margin: 20px 0;"
+            >
+                Przykładowa sekcja z gradientem
+            </div>
+        </section>
+
+        <!-- Marginesy i odstępy -->
+        <section>
+            <h2>Marginesy i odstępy</h2>
+            <ul>
+                <li>Gap między kafelkami: 15px-20px</li>
+                <li>Padding wewnętrzny kafelków: 12px</li>
+                <li>Margin między sekcjami: 30px</li>
+                <li>Border radius: 10px (kafelki), 15px (sekcje)</li>
+            </ul>
+        </section>
+
+    </div>
+</body>
+</html>
