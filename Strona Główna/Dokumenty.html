@@ -1,3 +1,4 @@
+<html>
 <body style="font-family: Arial, sans-serif; margin: 0; line-height: 1.6;">
 
     <!-- Główny kontener -->
@@ -481,5 +482,14 @@
             </div>
         </div>
     </div>
+   
+   <script>
+        window.addEventListener('load', function() {
+          var parentIframe = window.parent.document.getElementById('myIframe');
+          parentIframe.style.height = document.body.scrollHeight + 'px';
+        });
+      </script>
+
+
 </body>
 </html>
