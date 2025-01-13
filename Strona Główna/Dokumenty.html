@@ -481,15 +481,25 @@
             </div>
         </div>
     </div>
+<!-- Skrypt na stronie z GitHub (np. Dokumenty.html) -->
+<script>
+    // Funkcja wysyłająca wysokość do rodzica (strona CMD)
+    function sendHeightToParent() {
+        var height = document.body.scrollHeight; // Pobierz wysokość ciała strony
+        window.parent.postMessage({ height: height }, '*'); // Wyślij wiadomość do rodzica
+    }
+
+    // Wywołaj funkcję po załadowaniu strony
+    window.onload = function() {
+        sendHeightToParent();
+    };
+
+    // Wywołaj funkcję za każdym razem, gdy zawartość strony się zmienia (np. przewijanie)
+    window.onresize = function() {
+        sendHeightToParent();
+    };
+</script>
+
+
 </body>
 </html>
-
-<script>
-    // Funkcja, która wysyła wysokość dokumentu do strony nadrzędnej
-    window.addEventListener('message', function(event) {
-        if (event.data === 'getHeight') {
-            var height = document.body.scrollHeight;
-            event.source.postMessage({ height: height }, event.origin);
-        }
-    });
-</script>
