@@ -483,14 +483,12 @@
         </div>
     </div>
    
-   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      var parentIframe = window.parent.document.getElementById('myIframe');
-      if (parentIframe) {
-        parentIframe.style.height = document.body.scrollHeight + 'px';
-      }
-    });
-  </script>
+    <script>
+        window.addEventListener('load', function() {
+          const height = document.body.scrollHeight;
+          window.parent.postMessage({ type: 'iframeHeight', height: height }, '#');
+        });
+      </script>
 
 
 </body>
