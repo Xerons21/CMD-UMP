@@ -485,18 +485,18 @@
    
    
 
-<script>
-    window.addEventListener('load', function() {
-      document.fonts.ready.then(() => {
-        const scrollHeight = document.body.scrollHeight;
-        const offsetHeight = document.body.offsetHeight;
-        console.log('scrollHeight:', scrollHeight);
-        console.log('offsetHeight:', offsetHeight);
-        window.parent.postMessage({ type: 'iframeHeight', height: offsetHeight }, 'https://cmd.ump.edu.pl');
-      });
-    });
-  </script>
-
+    <script>
+        console.log('Iframe script is running!');
+        window.addEventListener('load', function() {
+          document.fonts.ready.then(() => {
+            const scrollHeight = document.body.scrollHeight;
+            const offsetHeight = document.body.offsetHeight;
+            console.log('scrollHeight:', scrollHeight);
+            console.log('offsetHeight:', offsetHeight);
+            window.parent.postMessage({ type: 'iframeHeight', height: offsetHeight }, 'https://cmd.ump.edu.pl');
+          });
+        });
+      </script>
 
 </body>
 </html>
