@@ -493,7 +493,7 @@
             const offsetHeight = document.body.offsetHeight;
             console.log('scrollHeight:', scrollHeight);
             console.log('offsetHeight:', offsetHeight);
-            window.parent.postMessage({ type: 'iframeHeight', height: offsetHeight }, 'https://cmd.ump.edu.pl');
+            window.parent.postMessage({ type: 'iframeHeight', height: offsetHeight }, '#');
           });
         });
       </script>
