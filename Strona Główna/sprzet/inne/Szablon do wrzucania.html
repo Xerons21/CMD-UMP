@@ -1,0 +1,29 @@
+
+<p style="text-align: center;">
+  <iframe 
+  id="myIframe" 
+  style="width: 105%; height: 500px; border: none;" 
+  src="https://xerons21.github.io/CMD-UMP/Strona%20G%C5%82%C3%B3wna/Kontakt.html" 
+  scrolling="no">
+  </iframe>
+</p>
+
+<script>// <![CDATA[
+// Nasłuchuj na wiadomości
+  window.addEventListener('message', function(event) {
+    // Sprawdź, czy wiadomość pochodzi z zaufanego źródła
+    if (event.origin !== 'https://xerons21.github.io') return;
+
+    // Sprawdź, czy wiadomość zawiera typ 'iframeHeight'
+    if (event.data.type === 'iframeHeight') {
+      // Pobierz element iframe
+      const iframe = document.getElementById('myIframe');
+      if (iframe) {
+        // Ustaw wysokość iframe na wartość otrzymaną w wiadomości
+        iframe.style.height = event.data.height + 'px';
+      } else {
+        console.error('Iframe z id "myIframe" nie został znaleziony.');
+      }
+    }
+  });
+// ]]></script>
