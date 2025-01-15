@@ -20,68 +20,82 @@
         padding: 20px;
         max-width: 800px;
         margin: 0 auto;">
-
-        <!-- Tile 1 - Laminar Flow Hood -->
-     <a target="_top" href="https://cmd.ump.edu.pl/sprzet/Maxwell_RSC_48#text-resizer" style="text-decoration: none;">
-
-        <span style="
-            background: linear-gradient(135deg, #e8f4f8, #ffffff);
-            border-radius: 15px;
-            box-shadow: 0 6px 12px rgba(35,183,245,0.3);
-            text-align: center;
-            padding: 15px;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            border-top: 6px solid #3498db;
-            border-bottom: 2px solid #3498db;
-            position: relative;
-            height: 280px;">
-            
+        
+        <!-- Tile 1 - Maxwell RSC 48 -->
+        <a target="_top" href="https://cmd.ump.edu.pl/sprzet/Maxwell_RSC_48#text-resizer" style="text-decoration: none;">
             <span style="
-                width: 100%;
-                height: 160px;
+                background: linear-gradient(135deg, #e8f4f8, #ffffff);
+                border-radius: 15px;
+                box-shadow: 0 6px 12px rgba(35,183,245,0.3);
+                text-align: center;
+                padding: 15px;
+                cursor: pointer;
                 display: flex;
+                flex-direction: column;
                 align-items: center;
-                justify-content: center;
-                background: white;
-                border-radius: 12px;
-                margin-top: 5px;
-                overflow: hidden;">
-                <img loading="lazy" 
-                    src="https://media.exapro.com/product/2024/09/P240910834/6a94599f867bea096e320065cf49ac50/promega-maxwell-rsc-48-p240910834_1.jpg" 
-                    alt="Maxwell" 
-                    style="
-                        max-width: 100%;
-                        max-height: 100%;
-                        width: auto;
-                        height: auto;
-                        object-fit: cover;
-                        scale: 1.1;
-                        border-radius: 10px;
-                        pointer-events: none;">
-            </span>
-            
-            <span style="
-                flex: 1;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                padding: 10px 5px 0;
-                height: 85px;">  <!-- Zwiększona wysokość i usunięto max-height -->
+                border-top: 6px solid #3498db;
+                border-bottom: 2px solid #3498db;
+                position: relative;
+                height: 280px;
+                transition: all 0.3s ease;">
+                
                 <span style="
+                    width: 100%;
+                    height: 160px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: white;
+                    border-radius: 12px;
+                    margin-top: 5px;
+                    overflow: hidden;">
+                    <img loading="lazy" 
+                        src="https://media.exapro.com/product/2024/09/P240910834/6a94599f867bea096e320065cf49ac50/promega-maxwell-rsc-48-p240910834_1.jpg" 
+                        alt="Maxwell" 
+                        style="
+                            max-width: 100%;
+                            max-height: 100%;
+                            width: auto;
+                            height: auto;
+                            object-fit: cover;
+                            scale: 1.1;
+                            border-radius: 10px;
+                            pointer-events: none;">
+                </span>
+                
+                <span style="
+                    flex: 1;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 10px 5px 0;
+                    height: 85px;">
+                    <span style="
                         color: #2980b9;
                         font-weight: 600;
-                        font-size: 0.85em;   /* Jeszcze mniejsza czcionka */
-                        line-height: 1.4;    /* Dodany line-height */
+                        font-size: 0.85em;
+                        line-height: 1.4;
                         text-decoration: none;
                         text-align: center;">
-                    Maxwell RSC 48 (Automatyczny izolator kwasów nukleinowych)
+                        Maxwell RSC 48 (Automatyczny izolator kwasów nukleinowych)
+                    </span>
                 </span>
             </span>
-        </span>
-     </a>
+        </a>
+    
+<script>
+    document.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('mouseover', function() {
+            link.querySelector('span').style.boxShadow = '0 10px 20px rgba(35,183,245,0.4)';
+            link.querySelector('span').style.transform = 'scale(1.05)';
+        });
+
+        link.addEventListener('mouseout', function() {
+            link.querySelector('span').style.boxShadow = '0 6px 12px rgba(35,183,245,0.3)';
+            link.querySelector('span').style.transform = 'scale(1)';
+        });
+    });
+</script>
 
         <!-- Tile 2 - NanoDrop Spectrophotometer -->
         <a target="_top" href="https://cmd.ump.edu.pl/sprzet/NanoDrop#text-resizer" style="text-decoration: none;">
@@ -99,7 +113,8 @@
                 border-top: 6px solid #3498db;
                 border-bottom: 2px solid #3498db;
                 position: relative;
-                height: 280px;">
+                height: 280px;
+                transition: all 0.3s ease;">
                 
                 <span style="
                     width: 100%;
@@ -146,6 +161,19 @@
             </span>
         </a>
 
+        <script>
+            document.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('mouseover', function() {
+                    link.querySelector('span').style.boxShadow = '0 10px 20px rgba(35,183,245,0.4)';
+                    link.querySelector('span').style.transform = 'scale(1.05)';
+                });
+        
+                link.addEventListener('mouseout', function() {
+                    link.querySelector('span').style.boxShadow = '0 6px 12px rgba(35,183,245,0.3)';
+                    link.querySelector('span').style.transform = 'scale(1)';
+                });
+            });
+        </script>
         <!-- Tile 3 - Thermal Cyclers -->
         <a target="_top" href="https://cmd.ump.edu.pl/sprzet/Bio-Rad_T100_i_PTC_Tempo_96#text-resizer" style="text-decoration: none;">
 
@@ -162,7 +190,8 @@
                 border-top: 6px solid #3498db;
                 border-bottom: 2px solid #3498db;
                 position: relative;
-                height: 280px;">
+                height: 280px;
+                transition: all 0.3s ease;">
                 
                 <span style="
                     width: 100%;
@@ -209,6 +238,20 @@
             </span>
         </a>
 
+        <script>
+            document.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('mouseover', function() {
+                    link.querySelector('span').style.boxShadow = '0 10px 20px rgba(35,183,245,0.4)';
+                    link.querySelector('span').style.transform = 'scale(1.05)';
+                });
+        
+                link.addEventListener('mouseout', function() {
+                    link.querySelector('span').style.boxShadow = '0 6px 12px rgba(35,183,245,0.3)';
+                    link.querySelector('span').style.transform = 'scale(1)';
+                });
+            });
+        </script>
+
         <!-- Tile 4 - qPCR System -->
         <a target="_top" href="https://cmd.ump.edu.pl/sprzet/COBAS_Z480#text-resizer" style="text-decoration: none;">
 
@@ -225,7 +268,8 @@
                 border-top: 6px solid #27ae60;
                 border-bottom: 2px solid #27ae60;
                 position: relative;
-                height: 280px;">
+                height: 280px;
+                transition: all 0.3s ease;">
                 
                 <span style="
                     width: 100%;
@@ -272,6 +316,20 @@
             </span>
         </a>
 
+        <script>
+            document.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('mouseover', function() {
+                    link.querySelector('span').style.boxShadow = '0 10px 20px rgba(35,183,245,0.4)';
+                    link.querySelector('span').style.transform = 'scale(1.05)';
+                });
+        
+                link.addEventListener('mouseout', function() {
+                    link.querySelector('span').style.boxShadow = '0 6px 12px rgba(35,183,245,0.3)';
+                    link.querySelector('span').style.transform = 'scale(1)';
+                });
+            });
+        </script>
+
         <!-- Tile 5 - Ultracentrifuge -->
         <a target="_top" href="https://cmd.ump.edu.pl/sprzet/Thermo_Scientific_Sorvall_MX-120_Plus#text-resizer" style="text-decoration: none;">
 
@@ -288,7 +346,8 @@
                 border-top: 6px solid #27ae60;
                 border-bottom: 2px solid #27ae60;
                 position: relative;
-                height: 280px;">
+                height: 280px;
+                transition: all 0.3s ease;">
                 
                 <span style="
                     width: 100%;
@@ -334,7 +393,19 @@
                 </span>
             </span>
         </a>
-
+        <script>
+            document.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('mouseover', function() {
+                    link.querySelector('span').style.boxShadow = '0 10px 20px rgba(35,183,245,0.4)';
+                    link.querySelector('span').style.transform = 'scale(1.05)';
+                });
+        
+                link.addEventListener('mouseout', function() {
+                    link.querySelector('span').style.boxShadow = '0 6px 12px rgba(35,183,245,0.3)';
+                    link.querySelector('span').style.transform = 'scale(1)';
+                });
+            });
+        </script>
         <!-- Tile 6 - TapeStation 2200 -->
         <a target="_top" href="https://cmd.ump.edu.pl/sprzet/TapeStation_2200#text-resizer" style="text-decoration: none;">
 
@@ -351,7 +422,8 @@
                 border-top: 6px solid #27ae60;
                 border-bottom: 2px solid #27ae60;
                 position: relative;
-                height: 280px;">
+                height: 280px;
+                transition: all 0.3s ease;">
                 
                 <span style="
                     width: 100%;
@@ -396,7 +468,19 @@
                 </span>
             </span>
         </a>
-
+        <script>
+            document.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('mouseover', function() {
+                    link.querySelector('span').style.boxShadow = '0 10px 20px rgba(35,183,245,0.4)';
+                    link.querySelector('span').style.transform = 'scale(1.05)';
+                });
+        
+                link.addEventListener('mouseout', function() {
+                    link.querySelector('span').style.boxShadow = '0 6px 12px rgba(35,183,245,0.3)';
+                    link.querySelector('span').style.transform = 'scale(1)';
+                });
+            });
+        </script>
         <!-- Tile 7 - MiniSeq Sequencer (Under Maintenance) -->
         <a target="_top" href="https://cmd.ump.edu.pl/sprzet/MiniSeq#text-resizer" style="text-decoration: none;">
 
@@ -413,7 +497,8 @@
                 border-top: 6px solid #e74c3c;
                 border-bottom: 2px solid #e74c3c;
                 position: relative;
-                height: 280px;">
+                height: 280px;
+                transition: all 0.3s ease;">
                 
                 <span style="
                     width: 100%;
@@ -459,7 +544,19 @@
                 </span>
             </span>
         </a>
-
+        <script>
+            document.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('mouseover', function() {
+                    link.querySelector('span').style.boxShadow = '0 10px 20px rgba(35,183,245,0.4)';
+                    link.querySelector('span').style.transform = 'scale(1.05)';
+                });
+        
+                link.addEventListener('mouseout', function() {
+                    link.querySelector('span').style.boxShadow = '0 6px 12px rgba(35,183,245,0.3)';
+                    link.querySelector('span').style.transform = 'scale(1)';
+                });
+            });
+        </script>
         <!-- Tile 8 - Cryostat -->
         <a target="_top" href="https://cmd.ump.edu.pl/sprzet/Thermo_Scientific_HM_525NX#text-resizer" style="text-decoration: none;">
 
@@ -476,7 +573,8 @@
                 border-top: 6px solid #e74c3c;
                 border-bottom: 2px solid #e74c3c;
                 position: relative;
-                height: 280px;">
+                height: 280px;
+                transition: all 0.3s ease;">
                 
                 <span style="
                     width: 100%;
@@ -522,7 +620,19 @@
                 </span>
             </span>
         </a>
-
+        <script>
+            document.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('mouseover', function() {
+                    link.querySelector('span').style.boxShadow = '0 10px 20px rgba(35,183,245,0.4)';
+                    link.querySelector('span').style.transform = 'scale(1.05)';
+                });
+        
+                link.addEventListener('mouseout', function() {
+                    link.querySelector('span').style.boxShadow = '0 6px 12px rgba(35,183,245,0.3)';
+                    link.querySelector('span').style.transform = 'scale(1)';
+                });
+            });
+        </script>
         <!-- Tile 9 - Microtome -->
         <a target="_top" href="https://cmd.ump.edu.pl/sprzet/Thermo_Scientific_HM_340E_i_LEICA_RM2125_RTS#text-resizer" style="text-decoration: none;">
 
@@ -539,7 +649,8 @@
                 border-top: 6px solid #e74c3c;
                 border-bottom: 2px solid #e74c3c;
                 position: relative;
-                height: 280px;">
+                height: 280px;
+                transition: all 0.3s ease;">
                 
                 <span style="
                     width: 100%;
@@ -585,7 +696,19 @@
                 </span>
             </span>
         </a>
-
+        <script>
+            document.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('mouseover', function() {
+                    link.querySelector('span').style.boxShadow = '0 10px 20px rgba(35,183,245,0.4)';
+                    link.querySelector('span').style.transform = 'scale(1.05)';
+                });
+        
+                link.addEventListener('mouseout', function() {
+                    link.querySelector('span').style.boxShadow = '0 6px 12px rgba(35,183,245,0.3)';
+                    link.querySelector('span').style.transform = 'scale(1)';
+                });
+            });
+        </script>
         <!-- Tile 10 - Trans-Blot Turbo -->
         <a target="_top" href="https://cmd.ump.edu.pl/sprzet/Trans-Blot_Turbo#text-resizer" style="text-decoration: none;">
 
@@ -602,7 +725,8 @@
                 border-top: 6px solid #f1c40f;
                 border-bottom: 2px solid #f1c40f;
                 position: relative;
-                height: 280px;">
+                height: 280px;
+                transition: all 0.3s ease;">
                 
                 <span style="
                     width: 100%;
@@ -627,7 +751,19 @@
                 </span>
             </span>
         </a>
-
+        <script>
+            document.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('mouseover', function() {
+                    link.querySelector('span').style.boxShadow = '0 10px 20px rgba(35,183,245,0.4)';
+                    link.querySelector('span').style.transform = 'scale(1.05)';
+                });
+        
+                link.addEventListener('mouseout', function() {
+                    link.querySelector('span').style.boxShadow = '0 6px 12px rgba(35,183,245,0.3)';
+                    link.querySelector('span').style.transform = 'scale(1)';
+                });
+            });
+        </script>
         <!-- Tile 11 - Biotek Synergy H1 -->
         <a target="_top" href="https://cmd.ump.edu.pl/sprzet/Biotek_Synergy_H1#text-resizer" style="text-decoration: none;">
 
@@ -644,7 +780,8 @@
                 border-top: 6px solid #f1c40f;
                 border-bottom: 2px solid #f1c40f;
                 position: relative;
-                height: 280px;">
+                height: 280px;
+                transition: all 0.3s ease;">
                 
                 <span style="width: 100%; height: 160px; display: flex; align-items: center; justify-content: center; background: white; border-radius: 12px; margin-top: 5px; overflow: hidden;">
                     <img loading="lazy" 
@@ -660,7 +797,19 @@
                 </span>
             </span>
         </a>
-
+        <script>
+            document.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('mouseover', function() {
+                    link.querySelector('span').style.boxShadow = '0 10px 20px rgba(35,183,245,0.4)';
+                    link.querySelector('span').style.transform = 'scale(1.05)';
+                });
+        
+                link.addEventListener('mouseout', function() {
+                    link.querySelector('span').style.boxShadow = '0 6px 12px rgba(35,183,245,0.3)';
+                    link.querySelector('span').style.transform = 'scale(1)';
+                });
+            });
+        </script>
         <!-- Tile 12 - JuliBr NanoEntek -->
         <a target="_top" href="https://cmd.ump.edu.pl/sprzet/JuliBr_NanoEntek#text-resizer" style="text-decoration: none;">
 
@@ -677,7 +826,8 @@
                 border-top: 6px solid #f1c40f;
                 border-bottom: 2px solid #f1c40f;
                 position: relative;
-                height: 280px;">
+                height: 280px;
+                transition: all 0.3s ease;">
                 
                 <span style="width: 100%; height: 160px; display: flex; align-items: center; justify-content: center; background: white; border-radius: 12px; margin-top: 5px; overflow: hidden;">
                     <img loading="lazy" 
@@ -693,7 +843,19 @@
                 </span>
             </span>
         </a>
-
+        <script>
+            document.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('mouseover', function() {
+                    link.querySelector('span').style.boxShadow = '0 10px 20px rgba(35,183,245,0.4)';
+                    link.querySelector('span').style.transform = 'scale(1.05)';
+                });
+        
+                link.addEventListener('mouseout', function() {
+                    link.querySelector('span').style.boxShadow = '0 6px 12px rgba(35,183,245,0.3)';
+                    link.querySelector('span').style.transform = 'scale(1)';
+                });
+            });
+        </script>
         <!-- Tile 13 - Quantus Fluorometer -->
         <a target="_top" href="https://cmd.ump.edu.pl/sprzet/Quantus_Fluorometer#text-resizer" style="text-decoration: none;">
 
@@ -710,7 +872,8 @@
                 border-top: 6px solid #3498db;
                 border-bottom: 2px solid #3498db;
                 position: relative;
-                height: 280px;">
+                height: 280px;
+                transition: all 0.3s ease;">
                 
                 <span style="width: 100%; height: 160px; display: flex; align-items: center; justify-content: center; background: white; border-radius: 12px; margin-top: 5px; overflow: hidden;">
                     <img loading="lazy" 
@@ -726,7 +889,19 @@
                 </span>
             </span>
         </a>
-
+        <script>
+            document.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('mouseover', function() {
+                    link.querySelector('span').style.boxShadow = '0 10px 20px rgba(35,183,245,0.4)';
+                    link.querySelector('span').style.transform = 'scale(1.05)';
+                });
+        
+                link.addEventListener('mouseout', function() {
+                    link.querySelector('span').style.boxShadow = '0 6px 12px rgba(35,183,245,0.3)';
+                    link.querySelector('span').style.transform = 'scale(1)';
+                });
+            });
+        </script>
         <!-- Tile 14 - Zeiss Axio Vert A1 -->
         <a target="_top" href="https://cmd.ump.edu.pl/sprzet/Zeiss_Axio_Vert_A1#text-resizer" style="text-decoration: none;">
 
@@ -743,7 +918,8 @@
                 border-top: 6px solid #3498db;
                 border-bottom: 2px solid #3498db;
                 position: relative;
-                height: 280px;">
+                height: 280px;
+                transition: all 0.3s ease;">
                 
                 <span style="width: 100%; height: 160px; display: flex; align-items: center; justify-content: center; background: white; border-radius: 12px; margin-top: 5px; overflow: hidden;">
                     <img loading="lazy" 
@@ -759,7 +935,19 @@
                 </span>
             </span>
         </a>
-
+        <script>
+            document.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('mouseover', function() {
+                    link.querySelector('span').style.boxShadow = '0 10px 20px rgba(35,183,245,0.4)';
+                    link.querySelector('span').style.transform = 'scale(1.05)';
+                });
+        
+                link.addEventListener('mouseout', function() {
+                    link.querySelector('span').style.boxShadow = '0 6px 12px rgba(35,183,245,0.3)';
+                    link.querySelector('span').style.transform = 'scale(1)';
+                });
+            });
+        </script>
         <!-- Tile 15 - ChemiDoc -->
         <a target="_top" href="https://cmd.ump.edu.pl/sprzet/ChemiDoc#text-resizer" style="text-decoration: none;">
 
@@ -776,7 +964,8 @@
                 border-top: 6px solid #3498db;
                 border-bottom: 2px solid #3498db;
                 position: relative;
-                height: 280px;">
+                height: 280px;
+                transition: all 0.3s ease;">
                 
                 <span style="width: 100%; height: 160px; display: flex; align-items: center; justify-content: center; background: white; border-radius: 12px; margin-top: 5px; overflow: hidden;">
                     <img loading="lazy" 
@@ -792,7 +981,19 @@
                 </span>
             </span>
         </a>
-
+        <script>
+            document.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('mouseover', function() {
+                    link.querySelector('span').style.boxShadow = '0 10px 20px rgba(35,183,245,0.4)';
+                    link.querySelector('span').style.transform = 'scale(1.05)';
+                });
+        
+                link.addEventListener('mouseout', function() {
+                    link.querySelector('span').style.boxShadow = '0 6px 12px rgba(35,183,245,0.3)';
+                    link.querySelector('span').style.transform = 'scale(1)';
+                });
+            });
+        </script>
     </div>
 </div>
 
