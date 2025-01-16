@@ -23,8 +23,7 @@
                 margin: 0;">
                 Jednostka dysponuje czterema laboratoriami przystosowanymi do kompleksowej realizacji badań. Pracownie wyposażone są zarówno w podstawowy sprzęt laboratoryjny, taki jak wirówki, mieszadła czy worteksy, jak i w specjalistyczne urządzenia. Poniżej krótko przedstawiamy nasze laboratoria.
                 <br><br>
-               <strong> Po więcej informacji o specjalistycznym sprzęcie zapraszamy do sekcji - <a target="_top" href="https://cmd.ump.edu.pl/sprzet#text-resizer">
-Sprzęt warty uwagi</a>.</strong>
+               <strong> Po więcej informacji o specjalistycznym sprzęcie zapraszamy do sekcji - <a target="_top" style= "text-decoration: none; color: #30c4f4;" href="https://cmd.ump.edu.pl/sprzet#text-resizer">Sprzęt warty uwagi</a>.</strong>
             </p>
         </div>
         
@@ -162,46 +161,63 @@ Sprzęt warty uwagi</a>.</strong>
                     </li>
                 </ul>
             </div>
-            <!-- Gallery dla pracowni biologii molekularnej -->
-            <div style="
-                display: grid; 
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
-                gap: 10px; 
-                margin-top: 20px; 
-                max-width: 100%; 
-                overflow: hidden;">
-                <div style="
-                    border-radius: 8px; 
-                    text-align: center; 
-                    overflow: hidden; 
-                    max-width: 100%;">
-                    <img loading="lazy" 
-                        src="https://wygrajsukces.com.pl/wp-content/uploads/2021/10/placeholder.png" 
-                        alt="Lab view"
-                        style="
-                            width: 100%; 
-                            height: 180px; 
-                            object-fit: cover; 
-                            border-radius: 10px;"
-                    />
-                </div>
-                <div style="
-                    border-radius: 8px; 
-                    text-align: center; 
-                    overflow: hidden; 
-                    max-width: 100%;">
-                    <img loading="lazy" 
-                        src="https://wygrajsukces.com.pl/wp-content/uploads/2021/10/placeholder.png" 
-                        alt="Lab view"
-                        style="
-                            width: 100%; 
-                            height: 180px; 
-                            object-fit: cover; 
-                            border-radius: 10px;"
-                    />
-                </div>
-            </div>
+      <!-- Dynamiczna Gallery dla pracowni biologii molekularnej -->
+<div class="gallery-wrapper" data-accent="#3498db" style="position: relative; max-width: 100%; overflow: hidden;">
+    <div class="gallery-container" style="display: flex; transition: transform 0.5s ease-in-out;">
+        <div style="flex: 0 0 100%; text-align: center; overflow: hidden; max-width: 100%;">
+            <img loading="lazy" 
+                src="https://wygrajsukces.com.pl/wp-content/uploads/2021/10/placeholder.png" 
+                alt="Lab view"
+                style="
+                    width: 100%; 
+                    height: calc(50vw - 50px); 
+                    max-height: 500px; 
+                    object-fit: cover; 
+                    border-radius: 10px;"
+            />
         </div>
+        <div style="flex: 0 0 100%; text-align: center; overflow: hidden; max-width: 100%;">
+            <img loading="lazy" 
+                src="https://wygrajsukces.com.pl/wp-content/uploads/2021/10/placeholder.png" 
+                alt="Lab view"
+                style="
+                    width: 100%; 
+                    height: calc(50vw - 50px); 
+                    max-height: 500px; 
+                    object-fit: cover; 
+                    border-radius: 10px;"
+            />
+        </div>
+        <!-- Możesz dodać więcej zdjęć tutaj -->
+        <div style="flex: 0 0 100%; text-align: center; overflow: hidden; max-width: 100%;">
+            <img loading="lazy" 
+                src="https://wygrajsukces.com.pl/wp-content/uploads/2021/10/placeholder.png" 
+                alt="Lab view"
+                style="
+                    width: 100%; 
+                    height: calc(50vw - 50px); 
+                    max-height: 500px; 
+                    object-fit: cover; 
+                    border-radius: 10px;"
+            />
+        </div>
+    </div>
+    
+    <!-- Strzałki -->
+    <button class="prev" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background-color: rgba(0, 0, 0, 0.5); color: white; border: none; padding: 10px; font-size: 20px; cursor: pointer;">&#10094;</button>
+    <button class="next" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background-color: rgba(0, 0, 0, 0.5); color: white; border: none; padding: 10px; font-size: 20px; cursor: pointer;">&#10095;</button>
+    
+    <!-- Kropki -->
+    <div class="dots" style="text-align: center; margin-top: 10px;">
+        <span class="dot" style="display: inline-block; margin: 0 5px; width: 15px; height: 15px; background-color: rgba(0, 0, 0, 0.5); border-radius: 50%; cursor: pointer;"></span>
+        <span class="dot" style="display: inline-block; margin: 0 5px; width: 15px; height: 15px; background-color: rgba(0, 0, 0, 0.5); border-radius: 50%; cursor: pointer;"></span>
+        <span class="dot" style="display: inline-block; margin: 0 5px; width: 15px; height: 15px; background-color: rgba(0, 0, 0, 0.5); border-radius: 50%; cursor: pointer;"></span>
+    </div>
+</div>
+</div>
+
+
+
 
         <!-- 2. PRACOWNIA BIAŁKA -->
         <div style="
@@ -312,45 +328,46 @@ Sprzęt warty uwagi</a>.</strong>
                 </ul>
             </div>
             <!-- Gallery dla pracowni białka -->
-            <div style="
-                display: grid; 
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
-                gap: 10px; 
-                margin-top: 20px; 
-                max-width: 100%; 
-                overflow: hidden;">
-                <div style="
-                    border-radius: 8px; 
-                    text-align: center; 
-                    overflow: hidden; 
-                    max-width: 100%;">
-                    <img loading="lazy" 
-                        src="https://wygrajsukces.com.pl/wp-content/uploads/2021/10/placeholder.png" 
-                        alt="Lab view"
-                        style="
-                            width: 100%; 
-                            height: 180px; 
-                            object-fit: cover; 
-                            border-radius: 10px;"
-                    />
-                </div>
-                <div style="
-                    border-radius: 8px; 
-                    text-align: center; 
-                    overflow: hidden; 
-                    max-width: 100%;">
-                    <img loading="lazy" 
-                        src="https://wygrajsukces.com.pl/wp-content/uploads/2021/10/placeholder.png" 
-                        alt="Lab view"
-                        style="
-                            width: 100%; 
-                            height: 180px; 
-                            object-fit: cover; 
-                            border-radius: 10px;"
-                    />
-                </div>
-            </div>
+            <div class="gallery-wrapper" data-accent="#f1c40f" style="position: relative; max-width: 100%; overflow: hidden;">
+    <div class="gallery-container" style="display: flex; transition: transform 0.5s ease-in-out;">
+        <div style="flex: 0 0 100%; text-align: center; overflow: hidden; max-width: 100%;">
+            <img loading="lazy" 
+                src="https://wygrajsukces.com.pl/wp-content/uploads/2021/10/placeholder.png" 
+                alt="Lab view"
+                style="
+                    width: 100%; 
+                    height: calc(50vw - 50px); 
+                    max-height: 500px; 
+                    object-fit: cover; 
+                    border-radius: 10px;"
+            />
         </div>
+        <div style="flex: 0 0 100%; text-align: center; overflow: hidden; max-width: 100%;">
+            <img loading="lazy" 
+                src="https://wygrajsukces.com.pl/wp-content/uploads/2021/10/placeholder.png" 
+                alt="Lab view"
+                style="
+                    width: 100%; 
+                    height: calc(50vw - 50px); 
+                    max-height: 500px; 
+                    object-fit: cover; 
+                    border-radius: 10px;"
+            />
+        </div>
+        <!-- Możesz dodać więcej zdjęć tutaj -->
+    </div>
+    
+    <!-- Strzałki -->
+    <button class="prev" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background-color: rgba(0, 0, 0, 0.5); color: white; border: none; padding: 10px; font-size: 20px; cursor: pointer;">&#10094;</button>
+    <button class="next" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background-color: rgba(0, 0, 0, 0.5); color: white; border: none; padding: 10px; font-size: 20px; cursor: pointer;">&#10095;</button>
+    
+    <!-- Kropki -->
+    <div class="dots" style="text-align: center; margin-top: 10px;">
+        <span class="dot" style="display: inline-block; margin: 0 5px; width: 15px; height: 15px; background-color: rgba(0, 0, 0, 0.5); border-radius: 50%; cursor: pointer;"></span>
+        <span class="dot" style="display: inline-block; margin: 0 5px; width: 15px; height: 15px; background-color: rgba(0, 0, 0, 0.5); border-radius: 50%; cursor: pointer;"></span>
+    </div>
+</div>
+</div>
 
         <!-- 3. PRACOWNIA HODOWLI KOMÓRKOWYCH -->
         <div style="
@@ -461,45 +478,46 @@ Sprzęt warty uwagi</a>.</strong>
                 </ul>
             </div>
             <!-- Gallery dla pracowni hodowli komórkowych -->
-            <div style="
-                display: grid; 
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
-                gap: 10px; 
-                margin-top: 20px; 
-                max-width: 100%; 
-                overflow: hidden;">
-                <div style="
-                    border-radius: 8px; 
-                    text-align: center; 
-                    overflow: hidden; 
-                    max-width: 100%;">
-                    <img loading="lazy" 
-                        src="https://wygrajsukces.com.pl/wp-content/uploads/2021/10/placeholder.png" 
-                        alt="Lab view"
-                        style="
-                            width: 100%; 
-                            height: 180px; 
-                            object-fit: cover; 
-                            border-radius: 10px;"
-                    />
-                </div>
-                <div style="
-                    border-radius: 8px; 
-                    text-align: center; 
-                    overflow: hidden; 
-                    max-width: 100%;">
-                    <img loading="lazy" 
-                        src="https://wygrajsukces.com.pl/wp-content/uploads/2021/10/placeholder.png" 
-                        alt="Lab view"
-                        style="
-                            width: 100%; 
-                            height: 180px; 
-                            object-fit: cover; 
-                            border-radius: 10px;"
-                    />
-                </div>
-            </div>
+            <div class="gallery-wrapper" data-accent="#e74c3c" style="position: relative; max-width: 100%; overflow: hidden;">
+    <div class="gallery-container" style="display: flex; transition: transform 0.5s ease-in-out;">
+        <div style="flex: 0 0 100%; text-align: center; overflow: hidden; max-width: 100%;">
+            <img loading="lazy" 
+                src="https://wygrajsukces.com.pl/wp-content/uploads/2021/10/placeholder.png" 
+                alt="Lab view"
+                style="
+                    width: 100%; 
+                    height: calc(50vw - 50px); 
+                    max-height: 500px; 
+                    object-fit: cover; 
+                    border-radius: 10px;"
+            />
         </div>
+        <div style="flex: 0 0 100%; text-align: center; overflow: hidden; max-width: 100%;">
+            <img loading="lazy" 
+                src="https://wygrajsukces.com.pl/wp-content/uploads/2021/10/placeholder.png" 
+                alt="Lab view"
+                style="
+                    width: 100%; 
+                    height: calc(50vw - 50px); 
+                    max-height: 500px; 
+                    object-fit: cover; 
+                    border-radius: 10px;"
+            />
+        </div>
+        <!-- Możesz dodać więcej zdjęć tutaj -->
+    </div>
+    
+    <!-- Strzałki -->
+    <button class="prev" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background-color: rgba(0, 0, 0, 0.5); color: white; border: none; padding: 10px; font-size: 20px; cursor: pointer;">&#10094;</button>
+    <button class="next" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background-color: rgba(0, 0, 0, 0.5); color: white; border: none; padding: 10px; font-size: 20px; cursor: pointer;">&#10095;</button>
+    
+    <!-- Kropki -->
+    <div class="dots" style="text-align: center; margin-top: 10px;">
+        <span class="dot" style="display: inline-block; margin: 0 5px; width: 15px; height: 15px; background-color: rgba(0, 0, 0, 0.5); border-radius: 50%; cursor: pointer;"></span>
+        <span class="dot" style="display: inline-block; margin: 0 5px; width: 15px; height: 15px; background-color: rgba(0, 0, 0, 0.5); border-radius: 50%; cursor: pointer;"></span>
+    </div>
+</div>
+</div>
 
         <!-- 4. PRACOWNIA BIOOBRAZOWANIA -->
         <div style="
@@ -586,47 +604,121 @@ Sprzęt warty uwagi</a>.</strong>
                 </ul>
             </div>
             <!-- Gallery dla pracowni bioobrazowania -->
-            <div style="
-                display: grid; 
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
-                gap: 10px; 
-                margin-top: 20px; 
-                max-width: 100%; 
-                overflow: hidden;">
-                <div style="
-                    border-radius: 8px; 
-                    text-align: center; 
-                    overflow: hidden; 
-                    max-width: 100%;">
-                    <img loading="lazy" 
-                        src="https://wygrajsukces.com.pl/wp-content/uploads/2021/10/placeholder.png" 
-                        alt="Lab view"
-                        style="
-                            width: 100%; 
-                            height: 180px; 
-                            object-fit: cover; 
-                            border-radius: 10px;"
-                    />
-                </div>
-                <div style="
-                    border-radius: 8px; 
-                    text-align: center; 
-                    overflow: hidden; 
-                    max-width: 100%;">
-                    <img loading="lazy" 
-                        src="https://wygrajsukces.com.pl/wp-content/uploads/2021/10/placeholder.png" 
-                        alt="Lab view"
-                        style="
-                            width: 100%; 
-                            height: 180px; 
-                            object-fit: cover; 
-                            border-radius: 10px;"
-                    />
-                </div>
-            </div>
+            <div class="gallery-wrapper" data-accent="#27ae60" style="position: relative; max-width: 100%; overflow: hidden;">
+    <div class="gallery-container" style="display: flex; transition: transform 0.5s ease-in-out;">
+        <div style="flex: 0 0 100%; text-align: center; overflow: hidden; max-width: 100%;">
+            <img loading="lazy" 
+                src="https://wygrajsukces.com.pl/wp-content/uploads/2021/10/placeholder.png" 
+                alt="Lab view"
+                style="
+                    width: 100%; 
+                    height: calc(50vw - 50px); 
+                    max-height: 500px; 
+                    object-fit: cover; 
+                    border-radius: 10px;"
+            />
         </div>
-        
+        <div style="flex: 0 0 100%; text-align: center; overflow: hidden; max-width: 100%;">
+            <img loading="lazy" 
+                src="https://wygrajsukces.com.pl/wp-content/uploads/2021/10/placeholder.png" 
+                alt="Lab view"
+                style="
+                    width: 100%; 
+                    height: calc(50vw - 50px); 
+                    max-height: 500px; 
+                    object-fit: cover; 
+                    border-radius: 10px;"
+            />
+        </div>
+        <!-- Możesz dodać więcej zdjęć tutaj -->
     </div>
+    
+    <!-- Strzałki -->
+    <button class="prev" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background-color: rgba(0, 0, 0, 0.5); color: white; border: none; padding: 10px; font-size: 20px; cursor: pointer;">&#10094;</button>
+    <button class="next" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background-color: rgba(0, 0, 0, 0.5); color: white; border: none; padding: 10px; font-size: 20px; cursor: pointer;">&#10095;</button>
+    
+    <!-- Kropki -->
+    <div class="dots" style="text-align: center; margin-top: 10px;">
+        <span class="dot" style="display: inline-block; margin: 0 5px; width: 15px; height: 15px; background-color: rgba(0, 0, 0, 0.5); border-radius: 50%; cursor: pointer;"></span>
+        <span class="dot" style="display: inline-block; margin: 0 5px; width: 15px; height: 15px; background-color: rgba(0, 0, 0, 0.5); border-radius: 50%; cursor: pointer;"></span>
+    </div>
+</div>
+</div>   
+</div>
+<script>
+    document.querySelectorAll('.gallery-wrapper').forEach(wrapper => {
+        const accentColor = wrapper.getAttribute('data-accent'); // Pobierz kolor akcentu
+        const galleryContainer = wrapper.querySelector('.gallery-container');
+        const images = galleryContainer.querySelectorAll('div');
+        const dots = wrapper.querySelectorAll('.dot');
+        const prevButton = wrapper.querySelector('.prev');
+        const nextButton = wrapper.querySelector('.next');
+        let currentIndex = 0;
+        let intervalId = null;
+    
+        // Funkcja do zmiany zdjęcia
+        function changeImage(index) {
+            if (index >= images.length) currentIndex = 0;
+            else if (index < 0) currentIndex = images.length - 1;
+            else currentIndex = index;
+    
+            galleryContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+    
+            // Zmiana kolorów kropek
+            dots.forEach(dot => dot.style.backgroundColor = 'rgba(0, 0, 0, 0.5)');
+            dots[currentIndex].style.backgroundColor = accentColor;
+        }
+    
+        // Funkcja startująca automatyczne przewijanie
+        function startAutoScroll() {
+            intervalId = setInterval(() => {
+                changeImage(currentIndex + 1);
+            }, 5000);
+        }
+    
+        // Funkcja zatrzymująca automatyczne przewijanie
+        function stopAutoScroll() {
+            clearInterval(intervalId);
+        }
+    
+        // Intersection Observer - automatyczne przewijanie tylko, gdy galeria widoczna
+        const galleryObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    startAutoScroll(); // Galeria widoczna - uruchom przewijanie
+                } else {
+                    stopAutoScroll(); // Galeria niewidoczna - zatrzymaj przewijanie
+                }
+            });
+        }, { threshold: 0.5 }); // 50% widoczności wymaga, by uznać element za widoczny
+    
+        // Obserwuj galerię
+        galleryObserver.observe(wrapper);
+    
+        // Obsługa strzałek
+        prevButton.addEventListener('click', () => {
+            changeImage(currentIndex - 1);
+            stopAutoScroll(); // Zatrzymaj automatyczne przewijanie po interakcji
+        });
+    
+        nextButton.addEventListener('click', () => {
+            changeImage(currentIndex + 1);
+            stopAutoScroll();
+        });
+    
+        // Obsługa kropek
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                changeImage(index);
+                stopAutoScroll();
+            });
+        });
+    
+        // Inicjalizacja pierwszego zdjęcia i kropki
+        changeImage(0);
+    });
+    </script>
+    
 
     <script>
         console.log('Iframe script is running!');
