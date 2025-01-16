@@ -1,188 +1,725 @@
-<body style="font-family: Arial, sans-serif; margin: 0; line-height: 1.6;">
-    <div style="width: 95%; max-width: 1200px; margin: 0 auto; padding: 20px;">
-        <!-- Sekcja wprowadzająca -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 30px;">
-            <div style="background: linear-gradient(135deg, #e8f4f8 0%, #ffffff 100%); border-radius: 15px; padding: 20px; box-shadow: 0 4px 8px rgba(35,183,245,0.15); border-left: 8px solid #30c4f4;">
-                <p style="color: #2c3e50; font-size: clamp(0.9em, 3vw, 1em); margin: 15px 0;">
-                    Thermo Scientific HM 525NX to zaawansowany kriostat zapewniający precyzyjne cięcie zamrożonych preparatów. Wyposażony w innowacyjny system chłodzenia i intuicyjny panel sterowania, umożliwia szybkie i dokładne przygotowanie skrawków do badań histologicznych i immunohistochemicznych.
-                </p>
-            </div>
+<body style="
+    font-family: Arial, sans-serif; 
+    margin: 0; 
+    line-height: 1.6;">
+    <!-- GŁÓWNY KONTENER -->
+    <div style="
+        width: 95%; 
+        max-width: 1200px; 
+        margin: 0 auto; 
+        padding: 20px;">
+        
+        <!-- ============= SEKCJA WPROWADZENIA ============= -->
+        <div style="
+            background: linear-gradient(to bottom, #e8f4f8, #ffffff); 
+            padding: 15px; 
+            border-left: 8px solid #30c4f4; 
+            margin: 20px 0; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 8px rgba(35,183,245,0.15);">
+            <p style="
+                color: #2c3e50; 
+                font-size: clamp(0.9em, 3vw, 1em); 
+                margin: 0;">
+                Jednostka dysponuje czterema laboratoriami przystosowanymi do kompleksowej realizacji badań. Pracownie wyposażone są zarówno w podstawowy sprzęt laboratoryjny, taki jak wirówki, mieszadła czy worteksy, jak i w specjalistyczne urządzenia. Poniżej krótko przedstawiamy nasze laboratoria.
+                <br><br>
+               <strong> Po więcej informacji o specjalistycznym sprzęcie zapraszamy do sekcji - <a target="_top" style= "text-decoration: none; color: #30c4f4;" href="https://cmd.ump.edu.pl/sprzet#text-resizer">Sprzęt warty uwagi</a>.</strong>
+Sprzęt warty uwagi</a>.</strong>
+            </p>
         </div>
-
-        <!-- Galeria zdjęć -->
-        <div style="display: grid; gap: 20px; margin-bottom: 30px;">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; margin-bottom: 20px;">
-                <div style="background: linear-gradient(135deg, #e8f4f8, #ffffff); border-radius: 15px; box-shadow: 0 6px 12px rgba(35,183,245,0.3); text-align: center; padding: 15px; border-top: 6px solid #3498db;">
-                    <div style="width: 100%; height: 160px; display: flex; align-items: center; justify-content: center; background: white; border-radius: 12px; overflow: hidden;">
-                        <img src="https://imgcdn.mckesson.com/CumulusWeb/Images/Original_Image/1003482.jpg"
-                             alt="Thermo Scientific HM 525NX"
-                             style="width: 100%; height: 100%; object-fit: scale-down;" onclick="openModal(this, 0)">
-                    </div>
-                </div>
-                <div style="background: linear-gradient(135deg, #e8f4f8, #ffffff); border-radius: 15px; box-shadow: 0 6px 12px rgba(35,183,245,0.3); text-align: center; padding: 15px; border-top: 6px solid #3498db;">
-                    <div style="width: 100%; height: 160px; display: flex; align-items: center; justify-content: center; background: white; border-radius: 12px; overflow: hidden;">
-                        <img src="https://shop.unigreenscheme.co.uk/files/ITEM-38896-020.jpg?v=BaYTLXmEmb"
-                             alt="Thermo Scientific HM 525NX"
-                             style="width: 100%; height: 100%; object-fit: cover;" onclick="openModal(this, 1)">
-                    </div>
-                </div>
-                <div style="background: linear-gradient(135deg, #e8f4f8, #ffffff); border-radius: 15px; box-shadow: 0 6px 12px rgba(35,183,245,0.3); text-align: center; padding: 15px; border-top: 6px solid #3498db;">
-                    <div style="width: 100%; height: 160px; display: flex; align-items: center; justify-content: center; background: white; border-radius: 12px; overflow: hidden;">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTICyxQIUVQCyhU01RsMuaXilX2Qr0vEZccuA&s"
-                             alt="Thermo Scientific HM 525NX"
-                             style="width: 100%; height: 100%; object-fit: cover;" onclick="openModal(this, 2)">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Specyfikacja -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 30px;">
-            <div style="background: linear-gradient(135deg, #e8f4f8 0%, #ffffff 100%); border-radius: 15px; padding: 20px; box-shadow: 0 4px 8px rgba(35,183,245,0.15); border-left: 8px solid #27ae60;">
-                <h3 style="color: #2980b9; margin-top: 0; padding-bottom: 8px; margin-bottom: 20px; font-size: clamp(1.1em, 3.5vw, 1.3em); border-bottom: 2px solid #30c4f4;">
-                    Specyfikacja techniczna
-                </h3>
-                <div style="background: rgba(255,255,255,0.7); padding: 15px; border-radius: 10px;">
-                    <ul style="color: #2c3e50; margin: 0; padding-left: 20px; list-style-type: none;">
-                        <li style="margin: 8px 0;"><span style="color: #27ae60;">•</span> Zakres chłodzenia: do -35°C w komorze</li>
-                        <li style="margin: 8px 0;"><span style="color: #27ae60;">•</span> Zakres grubości skrawków: od 1 µm do 500 µm</li>
-                        <li style="margin: 8px 0;"><span style="color: #27ae60;">•</span> Wbudowane urządzenie Peltiera do szybkiego zamrażania próbek, osiągające -55°C</li>
-                        <li style="margin: 8px 0;"><span style="color: #27ae60;">•</span> System dezynfekcji UV</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Możliwości -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 30px;">
-            <div style="background: linear-gradient(135deg, #e8f4f8 0%, #ffffff 100%); border-radius: 15px; padding: 20px; box-shadow: 0 4px 8px rgba(35,183,245,0.15); border-left: 8px solid #f1c40f;">
-                <h3 style="color: #2980b9; margin-top: 0; padding-bottom: 8px; margin-bottom: 20px; font-size: clamp(1.1em, 3.5vw, 1.3em); border-bottom: 2px solid #30c4f4;">
-                    Możliwości i zastosowania
-                </h3>
-                <div style="background: rgba(255,255,255,0.7); padding: 15px; border-radius: 10px;">
-                    <ul style="color: #2c3e50; margin: 0; padding-left: 20px; list-style-type: none;">
-                        <li style="margin: 12px 0;"><span style="color: #f1c40f;">•</span> Cięcie tkanek mrożonych</li>
-                        <li style="margin: 12px 0;"><span style="color: #f1c40f;">•</span> Preparatyka histologiczna</li>
-                        <li style="margin: 12px 0;"><span style="color: #f1c40f;">•</span> Diagnostyka śródoperacyjna</li>
-                        <li style="margin: 12px 0;"><span style="color: #f1c40f;">•</span> Badania immunohistochemiczne</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Więcej informacji -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 30px;">
-            <div style="background: linear-gradient(135deg, #e8f4f8 0%, #ffffff 100%); border-radius: 15px; padding: 20px; box-shadow: 0 4px 8px rgba(35,183,245,0.15); border-left: 8px solid #e74c3c;">
-                <h3 style="color: #2980b9; margin-top: 0; padding-bottom: 8px; margin-bottom: 20px; font-size: clamp(1.1em, 3.5vw, 1.3em); border-bottom: 2px solid #30c4f4;">
-                    Więcej informacji
-                </h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin-top: 15px;">
-                    <a href="https://tools.thermofisher.com/content/sfs/brochures/M45010-HM525NX-Brochure-EN.pdf" 
-                       target="_blank"
-                       style="background: rgba(255,255,255,0.7); padding: 12px; border-radius: 10px; text-decoration: none; color: #2c3e50; display: flex; align-items: center; box-shadow: 0 3px 6px rgba(0,0,0,0.1);" rel="noopener noreferrer">
-                        <img src="https://cmd.ump.edu.pl/media/uid/7_c914c2-_4040db9c7-/acdd-3.png"
-                             alt="external link icon"
-                             style="width: 36px; height: 36px; margin-left: -4px; margin-right: 10px; padding: 6px; background: rgba(231,76,60,0.1); border-radius: 50%;">
-                        <span style="flex: 1; text-align: left;">
-                            <span style="font-size: clamp(0.8em, 2vw, 0.85em); display: block; margin-bottom: 3px;">
-                            Broszura producenta Thermo Scientific HM 525NX
-                            </span>
-                            <span style="font-size: 0.75em; color: #7f8c8d; display: block;">
-                                Przejdź do strony zewnętrznej
-                            </span>
+        
+        <!-- ============= SEKCJA LABORATORIÓW ============= -->
+        
+        <!-- 1. PRACOWNIA BIOLOGII MOLEKULARNEJ -->
+        <div style="
+            background: linear-gradient(to bottom, #e8f4f8, #ffffff); 
+            padding: 15px; 
+            border-left: 8px solid #3498db; 
+            margin: 20px 0; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 8px rgba(35,183,245,0.15);">
+            <h3 style="
+                color: #2980b9; 
+                margin-top: 0px; 
+                padding-bottom: 8px; 
+                font-size: clamp(1.1em, 3.5vw, 1.3em); 
+                border-image: linear-gradient(to right, #30c4f4, #23b7f5) 1; 
+                border-width: 0 0 2px 0; 
+                border-style: solid;">
+                Pracownia biologii molekularnej
+            </h3>
+            <div style="
+                display: grid; 
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+                gap: 20px; 
+                margin-bottom: 15px;">
+                <ul style="
+                    color: #2c3e50; 
+                    margin: 0; 
+                    padding-left: 20px; 
+                    list-style-type: none;">
+                    <li style="
+                        padding: 6px 0px; 
+                        position: relative; 
+                        text-align: left;">
+                        <span style="
+                            position: absolute; 
+                            left: -20px; 
+                            color: #3498db;">
+                            &bull;
                         </span>
-                        <img src="https://cdn-icons-png.flaticon.com/512/271/271228.png"
-                             alt="arrow right icon"
-                             style="width: 18px; height: 18px; margin-left: 10px;">
-                    </a>
-                </div>
+                        Komora laminarna
+                    </li>
+                    <li style="
+                        padding: 6px 0px; 
+                        position: relative; 
+                        text-align: left;">
+                        <span style="
+                            position: absolute; 
+                            left: -20px; 
+                            color: #3498db;">
+                            &bull;
+                        </span>
+                        Spektrofotometr Nanodrop
+                    </li>
+                    <li style="
+                        padding: 6px 0px; 
+                        position: relative; 
+                        text-align: left;">
+                        <span style="
+                            position: absolute; 
+                            left: -20px; 
+                            color: #3498db;">
+                            &bull;
+                        </span>
+                        Termocyklery
+                    </li>
+                    <li style="
+                        padding: 6px 0px; 
+                        position: relative; 
+                        text-align: left;">
+                        <span style="
+                            position: absolute; 
+                            left: -20px; 
+                            color: #3498db;">
+                            &bull;
+                        </span>
+                        Aparat do qPCR
+                    </li>
+                </ul>
+                <ul style="
+                    color: #2c3e50; 
+                    margin: 0; 
+                    padding-left: 20px; 
+                    list-style-type: none;">
+                    <li style="
+                        padding: 6px 0; 
+                        position: relative; 
+                        text-align: left;">
+                        <span style="
+                            position: absolute; 
+                            left: -20px; 
+                            color: #3498db;">
+                            &bull;
+                        </span>
+                        Ultrawirówka
+                    </li>
+                    <li style="
+                        padding: 6px 0; 
+                        position: relative; 
+                        text-align: left;">
+                        <span style="
+                            position: absolute; 
+                            left: -20px; 
+                            color: #3498db;">
+                            &bull;
+                        </span>
+                        Izolator kwasów nukleinowych
+                    </li>
+                    <li style="
+                        padding: 6px 0; 
+                        position: relative; 
+                        text-align: left;">
+                        <span style="
+                            position: absolute; 
+                            left: -20px; 
+                            color: #3498db;">
+                            &bull;
+                        </span>
+                        Aparatura do elektroforezy kapilarnej - TapeStation 2200
+                    </li>
+                    <li style="
+                        padding: 6px 0; 
+                        position: relative; 
+                        text-align: left;">
+                        <span style="
+                            position: absolute; 
+                            left: -20px; 
+                            color: #3498db;">
+                            &bull;
+                        </span>
+                        Sekwenator MiniSeq (w naprawie)
+                    </li>
+                </ul>
             </div>
+      <!-- Dynamiczna Gallery dla pracowni biologii molekularnej -->
+<div class="gallery-wrapper" data-accent="#3498db" style="position: relative; max-width: 100%; overflow: hidden;">
+    <div class="gallery-container" style="display: flex; transition: transform 0.5s ease-in-out;">
+        <div style="flex: 0 0 100%; text-align: center; overflow: hidden; max-width: 100%;">
+            <img loading="lazy" 
+                src="https://wygrajsukces.com.pl/wp-content/uploads/2021/10/placeholder.png" 
+                alt="Lab view"
+                style="
+                    width: 100%; 
+                    height: calc(50vw - 50px); 
+                    max-height: 500px; 
+                    object-fit: cover; 
+                    border-radius: 10px;"
+            />
+        </div>
+        <div style="flex: 0 0 100%; text-align: center; overflow: hidden; max-width: 100%;">
+            <img loading="lazy" 
+                src="https://wygrajsukces.com.pl/wp-content/uploads/2021/10/placeholder.png" 
+                alt="Lab view"
+                style="
+                    width: 100%; 
+                    height: calc(50vw - 50px); 
+                    max-height: 500px; 
+                    object-fit: cover; 
+                    border-radius: 10px;"
+            />
+        </div>
+        <!-- Możesz dodać więcej zdjęć tutaj -->
+        <div style="flex: 0 0 100%; text-align: center; overflow: hidden; max-width: 100%;">
+            <img loading="lazy" 
+                src="https://wygrajsukces.com.pl/wp-content/uploads/2021/10/placeholder.png" 
+                alt="Lab view"
+                style="
+                    width: 100%; 
+                    height: calc(50vw - 50px); 
+                    max-height: 500px; 
+                    object-fit: cover; 
+                    border-radius: 10px;"
+            />
         </div>
     </div>
-
-<!-- Modal (powiększenie zdjęcia) -->
-<div id="myModal" style="display: none; position: fixed; z-index: 1; padding-top: 50px; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.8);">
-    <span onclick="closeModal()" style="position: absolute; top: 10px; right: 25px; color: #5d5d5d; background-color: #eeeeee; width: 40px; height: 40px; border-radius: 100%; display: flex; justify-content: center; align-items: center; font-size: 40px; font-weight: bold; cursor: pointer;">&times;</span>
     
-    <!-- Kontener dla zdjęcia, który dopasowuje się do rozmiaru obrazu -->
-    <div style="position: relative; display: flex; justify-content: center; align-items: center; height: auto;">
-        
-        <!-- Strzałka w lewo -->
-        <div style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); width: 40px; height: 40px; color: #5d5d5d; font-size: 30px; font-weight: bold; cursor: pointer; padding: 10px; background-color: #eeeeee; border-radius: 100%; display: flex; justify-content: center; align-items: center;" onclick="changeImage(-1)">
-            <span>&lt;</span>
-        </div>
-        
-        <!-- Strzałka w prawo -->
-        <div style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); width: 40px; height: 40px; color: #5d5d5d; font-size: 30px; font-weight: bold; cursor: pointer; padding: 10px; background-color: #eeeeee; border-radius: 100%; display: flex; justify-content: center; align-items: center;" onclick="changeImage(1)">
-            <span>&gt;</span>
-        </div>
-        
-        <!-- Zdjęcie -->
-        <img id="modalImg" style="max-width: 80%; max-height: 80%; object-fit: contain;">
-        
-        <!-- Licznik zdjęć -->
-        <div id="imageCounter" 
-     style="position: absolute; bottom: -60px; left: 50%; transform: translateX(-50%); 
-            color: #5d5d5d; font-size: 16px; font-weight: bold; background-color: #eeeeee;
-            border-radius: 50%; display: flex; justify-content: center; align-items: center;
-            width: 40px; height: 40px;">
-    1/3
-        </div>
-
+    <!-- Strzałki -->
+    <button class="prev" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background-color: rgba(0, 0, 0, 0.5); color: white; border: none; padding: 10px; font-size: 20px; cursor: pointer;">&#10094;</button>
+    <button class="next" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background-color: rgba(0, 0, 0, 0.5); color: white; border: none; padding: 10px; font-size: 20px; cursor: pointer;">&#10095;</button>
+    
+    <!-- Kropki -->
+    <div class="dots" style="text-align: center; margin-top: 10px;">
+        <span class="dot" style="display: inline-block; margin: 0 5px; width: 15px; height: 15px; background-color: rgba(0, 0, 0, 0.5); border-radius: 50%; cursor: pointer;"></span>
+        <span class="dot" style="display: inline-block; margin: 0 5px; width: 15px; height: 15px; background-color: rgba(0, 0, 0, 0.5); border-radius: 50%; cursor: pointer;"></span>
+        <span class="dot" style="display: inline-block; margin: 0 5px; width: 15px; height: 15px; background-color: rgba(0, 0, 0, 0.5); border-radius: 50%; cursor: pointer;"></span>
     </div>
 </div>
+</div>
 
+
+
+
+        <!-- 2. PRACOWNIA BIAŁKA -->
+        <div style="
+            background: linear-gradient(to bottom, #e8f4f8, #ffffff); 
+            padding: 15px; 
+            border-left: 8px solid #f1c40f; 
+            margin: 20px 0; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 8px rgba(35,183,245,0.15);">
+            <h3 style="
+                color: #2980b9; 
+                margin-top: 0px; 
+                padding-bottom: 8px; 
+                font-size: clamp(1.1em, 3.5vw, 1.3em); 
+                border-image: linear-gradient(to right, #30c4f4, #23b7f5) 1; 
+                border-width: 0 0 2px 0; 
+                border-style: solid;">
+                Pracownia białka i histologii
+            </h3>
+            <div style="
+                display: grid; 
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+                gap: 20px; 
+                margin-bottom: 15px;">
+                <ul style="
+                    color: #2c3e50; 
+                    margin: 0; 
+                    padding-left: 20px; 
+                    list-style-type: none;">
+                    <li style="
+                        padding: 6px 0; 
+                        position: relative; 
+                        text-align: left;">
+                        <span style="
+                            position: absolute; 
+                            left: -20px; 
+                            color: #f1c40f;">
+                            &bull;
+                        </span>
+                        Kriotom
+                    </li>
+                    <li style="
+                        padding: 6px 0; 
+                        position: relative; 
+                        text-align: left;">
+                        <span style="
+                            position: absolute; 
+                            left: -20px; 
+                            color: #f1c40f;">
+                            &bull;
+                        </span>
+                        Mikrotom
+                    </li>
+                    <li style="
+                        padding: 6px 0; 
+                        position: relative; 
+                        text-align: left;">
+                        <span style="
+                            position: absolute; 
+                            left: -20px; 
+                            color: #f1c40f;">
+                            &bull;
+                        </span>
+                        Zestaw do barwień histologicznych
+                    </li>
+                </ul>
+                <ul style="
+                    color: #2c3e50; 
+                    margin: 0; 
+                    padding-left: 20px; 
+                    list-style-type: none;">
+                    <li style="
+                        padding: 6px 0; 
+                        position: relative; 
+                        text-align: left;">
+                        <span style="
+                            position: absolute; 
+                            left: -20px; 
+                            color: #f1c40f;">
+                            &bull;
+                        </span>
+                        Sonifikator ultradźwiękowy
+                    </li>
+                    <li style="
+                        padding: 6px 0; 
+                        position: relative; 
+                        text-align: left;">
+                        <span style="
+                            position: absolute; 
+                            left: -20px; 
+                            color: #f1c40f;">
+                            &bull;
+                        </span>
+                        Zestaw do elektroforezy żelowej
+                    </li>
+                    <li style="
+                        padding: 6px 0; 
+                        position: relative; 
+                        text-align: left;">
+                        <span style="
+                            position: absolute; 
+                            left: -20px; 
+                            color: #f1c40f;">
+                            &bull;
+                        </span>
+                        Zamrażarka ULT (-80&#176;C)
+                    </li>
+                </ul>
+            </div>
+            <!-- Gallery dla pracowni białka -->
+            <div class="gallery-wrapper" data-accent="#f1c40f" style="position: relative; max-width: 100%; overflow: hidden;">
+    <div class="gallery-container" style="display: flex; transition: transform 0.5s ease-in-out;">
+        <div style="flex: 0 0 100%; text-align: center; overflow: hidden; max-width: 100%;">
+            <img loading="lazy" 
+                src="https://wygrajsukces.com.pl/wp-content/uploads/2021/10/placeholder.png" 
+                alt="Lab view"
+                style="
+                    width: 100%; 
+                    height: calc(50vw - 50px); 
+                    max-height: 500px; 
+                    object-fit: cover; 
+                    border-radius: 10px;"
+            />
+        </div>
+        <div style="flex: 0 0 100%; text-align: center; overflow: hidden; max-width: 100%;">
+            <img loading="lazy" 
+                src="https://wygrajsukces.com.pl/wp-content/uploads/2021/10/placeholder.png" 
+                alt="Lab view"
+                style="
+                    width: 100%; 
+                    height: calc(50vw - 50px); 
+                    max-height: 500px; 
+                    object-fit: cover; 
+                    border-radius: 10px;"
+            />
+        </div>
+        <!-- Możesz dodać więcej zdjęć tutaj -->
+    </div>
+    
+    <!-- Strzałki -->
+    <button class="prev" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background-color: rgba(0, 0, 0, 0.5); color: white; border: none; padding: 10px; font-size: 20px; cursor: pointer;">&#10094;</button>
+    <button class="next" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background-color: rgba(0, 0, 0, 0.5); color: white; border: none; padding: 10px; font-size: 20px; cursor: pointer;">&#10095;</button>
+    
+    <!-- Kropki -->
+    <div class="dots" style="text-align: center; margin-top: 10px;">
+        <span class="dot" style="display: inline-block; margin: 0 5px; width: 15px; height: 15px; background-color: rgba(0, 0, 0, 0.5); border-radius: 50%; cursor: pointer;"></span>
+        <span class="dot" style="display: inline-block; margin: 0 5px; width: 15px; height: 15px; background-color: rgba(0, 0, 0, 0.5); border-radius: 50%; cursor: pointer;"></span>
+    </div>
+</div>
+</div>
+
+        <!-- 3. PRACOWNIA HODOWLI KOMÓRKOWYCH -->
+        <div style="
+            background: linear-gradient(to bottom, #e8f4f8, #ffffff); 
+            padding: 15px; 
+            border-left: 8px solid #e74c3c; 
+            margin: 20px 0; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 8px rgba(35,183,245,0.15);">
+            <h3 style="
+                color: #2980b9; 
+                margin-top: 0px; 
+                padding-bottom: 8px; 
+                font-size: clamp(1.1em, 3.5vw, 1.3em); 
+                border-image: linear-gradient(to right, #30c4f4, #23b7f5) 1; 
+                border-width: 0 0 2px 0; 
+                border-style: solid;">
+                Pracownia hodowli komórkowych
+            </h3>
+            <div style="
+                display: grid; 
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+                gap: 20px; 
+                margin-bottom: 15px;">
+                <ul style="
+                    color: #2c3e50; 
+                    margin: 0; 
+                    padding-left: 20px; 
+                    list-style-type: none;">
+                    <li style="
+                        padding: 6px 0; 
+                        position: relative; 
+                        text-align: left;">
+                        <span style="
+                            position: absolute; 
+                            left: -20px; 
+                            color: #e74c3c;">
+                            &bull;
+                        </span>
+                        Komory laminarne
+                    </li>
+                    <li style="
+                        padding: 6px 0; 
+                        position: relative; 
+                        text-align: left;">
+                        <span style="
+                            position: absolute; 
+                            left: -20px; 
+                            color: #e74c3c;">
+                            &bull;
+                        </span>
+                        Inkubatory CO2
+                    </li>
+                    <li style="
+                        padding: 6px 0; 
+                        position: relative; 
+                        text-align: left;">
+                        <span style="
+                            position: absolute; 
+                            left: -20px; 
+                            color: #e74c3c;">
+                            &bull;
+                        </span>
+                        Mikroskop odwrócony
+                    </li>
+                </ul>
+                <ul style="
+                    color: #2c3e50; 
+                    margin: 0; 
+                    padding-left: 20px; 
+                    list-style-type: none;">
+                    <li style="
+                        padding: 6px 0; 
+                        position: relative; 
+                        text-align: left;">
+                        <span style="
+                            position: absolute; 
+                            left: -20px; 
+                            color: #e74c3c;">
+                            &bull;
+                        </span>
+                        Łaźnia wodna
+                    </li>
+                    <li style="
+                        padding: 6px 0; 
+                        position: relative; 
+                        text-align: left;">
+                        <span style="
+                            position: absolute; 
+                            left: -20px; 
+                            color: #e74c3c;">
+                            &bull;
+                        </span>
+                        Dewar z ciekłym azotem
+                    </li>
+                    <li style="
+                        padding: 6px 0; 
+                        position: relative; 
+                        text-align: left;">
+                        <span style="
+                            position: absolute; 
+                            left: -20px; 
+                            color: #e74c3c;">
+                            &bull;
+                        </span>
+                        Analizator żywych komórek
+                    </li>
+                </ul>
+            </div>
+            <!-- Gallery dla pracowni hodowli komórkowych -->
+            <div class="gallery-wrapper" data-accent="#e74c3c" style="position: relative; max-width: 100%; overflow: hidden;">
+    <div class="gallery-container" style="display: flex; transition: transform 0.5s ease-in-out;">
+        <div style="flex: 0 0 100%; text-align: center; overflow: hidden; max-width: 100%;">
+            <img loading="lazy" 
+                src="https://wygrajsukces.com.pl/wp-content/uploads/2021/10/placeholder.png" 
+                alt="Lab view"
+                style="
+                    width: 100%; 
+                    height: calc(50vw - 50px); 
+                    max-height: 500px; 
+                    object-fit: cover; 
+                    border-radius: 10px;"
+            />
+        </div>
+        <div style="flex: 0 0 100%; text-align: center; overflow: hidden; max-width: 100%;">
+            <img loading="lazy" 
+                src="https://wygrajsukces.com.pl/wp-content/uploads/2021/10/placeholder.png" 
+                alt="Lab view"
+                style="
+                    width: 100%; 
+                    height: calc(50vw - 50px); 
+                    max-height: 500px; 
+                    object-fit: cover; 
+                    border-radius: 10px;"
+            />
+        </div>
+        <!-- Możesz dodać więcej zdjęć tutaj -->
+    </div>
+    
+    <!-- Strzałki -->
+    <button class="prev" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background-color: rgba(0, 0, 0, 0.5); color: white; border: none; padding: 10px; font-size: 20px; cursor: pointer;">&#10094;</button>
+    <button class="next" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background-color: rgba(0, 0, 0, 0.5); color: white; border: none; padding: 10px; font-size: 20px; cursor: pointer;">&#10095;</button>
+    
+    <!-- Kropki -->
+    <div class="dots" style="text-align: center; margin-top: 10px;">
+        <span class="dot" style="display: inline-block; margin: 0 5px; width: 15px; height: 15px; background-color: rgba(0, 0, 0, 0.5); border-radius: 50%; cursor: pointer;"></span>
+        <span class="dot" style="display: inline-block; margin: 0 5px; width: 15px; height: 15px; background-color: rgba(0, 0, 0, 0.5); border-radius: 50%; cursor: pointer;"></span>
+    </div>
+</div>
+</div>
+
+        <!-- 4. PRACOWNIA BIOOBRAZOWANIA -->
+        <div style="
+            background: linear-gradient(to bottom, #e8f4f8, #ffffff); 
+            padding: 15px; 
+            border-left: 8px solid #27ae60; 
+            margin: 20px 0; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 8px rgba(35,183,245,0.15);">
+            <h3 style="
+                color: #2980b9; 
+                margin-top: 0px; 
+                padding-bottom: 8px; 
+                font-size: clamp(1.1em, 3.5vw, 1.3em); 
+                border-image: linear-gradient(to right, #30c4f4, #23b7f5) 1; 
+                border-width: 0 0 2px 0; 
+                border-style: solid;">
+                Pracownia bioobrazowania
+            </h3>
+            <div style="
+                display: grid; 
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+                gap: 20px; 
+                margin-bottom: 15px;">
+                <ul style="
+                    color: #2c3e50; 
+                    margin: 0; 
+                    padding-left: 20px; 
+                    list-style-type: none;">
+                    <li style="
+                        padding: 6px 0; 
+                        position: relative; 
+                        text-align: left;">
+                        <span style="
+                            position: absolute; 
+                            left: -20px; 
+                            color: #27ae60;">
+                            &bull;
+                        </span>
+                        Mikroskop fluorescencyjny z komorą środowiskową
+                    </li>
+                    <li style="
+                        padding: 6px 0; 
+                        position: relative; 
+                        text-align: left;">
+                        <span style="
+                            position: absolute; 
+                            left: -20px; 
+                            color: #27ae60;">
+                            &bull;
+                        </span>
+                        Czytnik płytek Synergy H1
+                    </li>
+                </ul>
+                <ul style="
+                    color: #2c3e50; 
+                    margin: 0; 
+                    padding-left: 20px; 
+                    list-style-type: none;">
+                    <li style="
+                        padding: 6px 0; 
+                        position: relative; 
+                        text-align: left;">
+                        <span style="
+                            position: absolute; 
+                            left: -20px; 
+                            color: #27ae60;">
+                            &bull;
+                        </span>
+                        System do obrazowania Western Blot oraz żeli
+                    </li>
+                    <li style="
+                        padding: 6px 0; 
+                        position: relative; 
+                        text-align: left;">
+                        <span style="
+                            position: absolute; 
+                            left: -20px; 
+                            color: #27ae60;">
+                            &bull;
+                        </span>
+                        Oprogramowanie do analizy obrazu
+                    </li>
+                </ul>
+            </div>
+            <!-- Gallery dla pracowni bioobrazowania -->
+            <div class="gallery-wrapper" data-accent="#27ae60" style="position: relative; max-width: 100%; overflow: hidden;">
+    <div class="gallery-container" style="display: flex; transition: transform 0.5s ease-in-out;">
+        <div style="flex: 0 0 100%; text-align: center; overflow: hidden; max-width: 100%;">
+            <img loading="lazy" 
+                src="https://wygrajsukces.com.pl/wp-content/uploads/2021/10/placeholder.png" 
+                alt="Lab view"
+                style="
+                    width: 100%; 
+                    height: calc(50vw - 50px); 
+                    max-height: 500px; 
+                    object-fit: cover; 
+                    border-radius: 10px;"
+            />
+        </div>
+        <div style="flex: 0 0 100%; text-align: center; overflow: hidden; max-width: 100%;">
+            <img loading="lazy" 
+                src="https://wygrajsukces.com.pl/wp-content/uploads/2021/10/placeholder.png" 
+                alt="Lab view"
+                style="
+                    width: 100%; 
+                    height: calc(50vw - 50px); 
+                    max-height: 500px; 
+                    object-fit: cover; 
+                    border-radius: 10px;"
+            />
+        </div>
+        <!-- Możesz dodać więcej zdjęć tutaj -->
+    </div>
+    
+    <!-- Strzałki -->
+    <button class="prev" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background-color: rgba(0, 0, 0, 0.5); color: white; border: none; padding: 10px; font-size: 20px; cursor: pointer;">&#10094;</button>
+    <button class="next" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background-color: rgba(0, 0, 0, 0.5); color: white; border: none; padding: 10px; font-size: 20px; cursor: pointer;">&#10095;</button>
+    
+    <!-- Kropki -->
+    <div class="dots" style="text-align: center; margin-top: 10px;">
+        <span class="dot" style="display: inline-block; margin: 0 5px; width: 15px; height: 15px; background-color: rgba(0, 0, 0, 0.5); border-radius: 50%; cursor: pointer;"></span>
+        <span class="dot" style="display: inline-block; margin: 0 5px; width: 15px; height: 15px; background-color: rgba(0, 0, 0, 0.5); border-radius: 50%; cursor: pointer;"></span>
+    </div>
+</div>
+</div>   
+</div>
 <script>
-    let currentIndex = 0; // Zmienna przechowująca indeks aktualnie wyświetlanego zdjęcia
-
-    // Funkcja inicjująca dynamiczną tablicę zdjęć
-    function initImages() {
-        // Zbieramy wszystkie obrazki w galerii, które mają 'onclick'
-        const imgs = document.querySelectorAll('img[onclick="openModal(this, 0)"], img[onclick="openModal(this, 1)"], img[onclick="openModal(this, 2)"]');
-        return Array.from(imgs).map(img => img.src); // Tworzymy tablicę ze źródłami zdjęć
-    }
-
-    const images = initImages(); // Inicjalizacja tablicy zdjęć na początku
-
-    // Funkcja otwierająca modal
-    function openModal(img, index) {
-        currentIndex = index;  // Ustawienie indeksu zdjęcia
-        var modal = document.getElementById("myModal");
-        var modalImg = document.getElementById("modalImg");
-        var imageCounter = document.getElementById("imageCounter");
-        modal.style.display = "block";
-        modalImg.src = img.src;
-        imageCounter.textContent = `${currentIndex + 1}/${images.length}`; // Ustawienie licznika
-    }
-
-    // Funkcja zamykająca modal
-    function closeModal() {
-        var modal = document.getElementById("myModal");
-        modal.style.display = "none";
-    }
-
-    // Funkcja zmieniająca zdjęcie w modal
-    function changeImage(direction) {
-        currentIndex += direction;
-        if (currentIndex < 0) currentIndex = images.length - 1;  // Przechodzimy na ostatnie zdjęcie
-        if (currentIndex >= images.length) currentIndex = 0;  // Przechodzimy na pierwsze zdjęcie
-        var modalImg = document.getElementById("modalImg");
-        var imageCounter = document.getElementById("imageCounter");
-        modalImg.src = images[currentIndex];
-        imageCounter.textContent = `${currentIndex + 1}/${images.length}`; // Aktualizacja licznika zdjęć
-    }
-
-    // Inicjalizacja zdjęć, jeśli zmienia się liczba zdjęć
-    window.addEventListener('load', function() {
-        const imgs = initImages();
-        images.length = 0; // Resetujemy tablicę
-        images.push(...imgs); // Przypisujemy nową tablicę
+    document.querySelectorAll('.gallery-wrapper').forEach(wrapper => {
+        const accentColor = wrapper.getAttribute('data-accent'); // Pobierz kolor akcentu
+        const galleryContainer = wrapper.querySelector('.gallery-container');
+        const images = galleryContainer.querySelectorAll('div');
+        const dots = wrapper.querySelectorAll('.dot');
+        const prevButton = wrapper.querySelector('.prev');
+        const nextButton = wrapper.querySelector('.next');
+        let currentIndex = 0;
+        let intervalId = null;
+    
+        // Funkcja do zmiany zdjęcia
+        function changeImage(index) {
+            if (index >= images.length) currentIndex = 0;
+            else if (index < 0) currentIndex = images.length - 1;
+            else currentIndex = index;
+    
+            galleryContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+    
+            // Zmiana kolorów kropek
+            dots.forEach(dot => dot.style.backgroundColor = 'rgba(0, 0, 0, 0.5)');
+            dots[currentIndex].style.backgroundColor = accentColor;
+        }
+    
+        // Funkcja startująca automatyczne przewijanie
+        function startAutoScroll() {
+            intervalId = setInterval(() => {
+                changeImage(currentIndex + 1);
+            }, 5000);
+        }
+    
+        // Funkcja zatrzymująca automatyczne przewijanie
+        function stopAutoScroll() {
+            clearInterval(intervalId);
+        }
+    
+        // Intersection Observer - automatyczne przewijanie tylko, gdy galeria widoczna
+        const galleryObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    startAutoScroll(); // Galeria widoczna - uruchom przewijanie
+                } else {
+                    stopAutoScroll(); // Galeria niewidoczna - zatrzymaj przewijanie
+                }
+            });
+        }, { threshold: 0.5 }); // 50% widoczności wymaga, by uznać element za widoczny
+    
+        // Obserwuj galerię
+        galleryObserver.observe(wrapper);
+    
+        // Obsługa strzałek
+        prevButton.addEventListener('click', () => {
+            changeImage(currentIndex - 1);
+            stopAutoScroll(); // Zatrzymaj automatyczne przewijanie po interakcji
+        });
+    
+        nextButton.addEventListener('click', () => {
+            changeImage(currentIndex + 1);
+            stopAutoScroll();
+        });
+    
+        // Obsługa kropek
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                changeImage(index);
+                stopAutoScroll();
+            });
+        });
+    
+        // Inicjalizacja pierwszego zdjęcia i kropki
+        changeImage(0);
     });
-</script>
-
-
-
-
+    </script>
+    
 
     <script>
         console.log('Iframe script is running!');
