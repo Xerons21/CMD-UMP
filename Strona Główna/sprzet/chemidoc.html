@@ -17,21 +17,21 @@
                     <div style="width: 100%; height: 160px; display: flex; align-items: center; justify-content: center; background: white; border-radius: 12px; overflow: hidden;">
                         <img src="https://5.imimg.com/data5/SELLER/Default/2022/12/FI/PG/FM/161853987/chemidoc-mp-imaging-system-1000x1000.jpg"
                              alt="BioRad ChemiDoc"
-                             style="width: 100%; height: 100%; object-fit: cover;">
+                             style="width: 100%; height: 100%; object-fit: cover;" onclick="openModal(this, 0)" >
                     </div>
                 </div>
                 <div style="background: linear-gradient(135deg, #e8f4f8, #ffffff); border-radius: 15px; box-shadow: 0 6px 12px rgba(35,183,245,0.3); text-align: center; padding: 15px; border-top: 6px solid #3498db;">
                     <div style="width: 100%; height: 160px; display: flex; align-items: center; justify-content: center; background: white; border-radius: 12px; overflow: hidden;">
                         <img src="https://www.bio-rad.com/webroot/web/html/lsr/products/imaging_bioinformatics/imagelab-chemidoc-tour/images_new/eth_large.png"
                              alt="BioRad ChemiDoc"
-                             style="width: 100%; height: 100%; object-fit: fill;">
+                             style="width: 100%; height: 100%; object-fit: fill;" onclick="openModal(this, 1)" >
                     </div>
                 </div>
                 <div style="background: linear-gradient(135deg, #e8f4f8, #ffffff); border-radius: 15px; box-shadow: 0 6px 12px rgba(35,183,245,0.3); text-align: center; padding: 15px; border-top: 6px solid #3498db;">
                     <div style="width: 100%; height: 160px; display: flex; align-items: center; justify-content: center; background: white; border-radius: 12px; overflow: hidden;">
                         <img src="https://www.bio-rad.com/webroot/web/html/lsr/products/imaging_bioinformatics/imagelab-chemidoc-tour/images_new/chemi_Large_Image_Size_2.png"
                              alt="BioRad ChemiDoc"
-                             style="width: 100%; height: 100%; object-fit: fill;">
+                             style="width: 100%; height: 100%; object-fit: fill;" onclick="openModal(this, 2)" >
                     </div>
                 </div>
                 
@@ -109,6 +109,87 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal (powiększenie zdjęcia) -->
+<div id="myModal" style="display: none; position: fixed; z-index: 1; padding-top: 50px; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.8);">
+    <span onclick="closeModal()" style="position: absolute; top: 10px; right: 25px; color: #5d5d5d; background-color: #eeeeee; width: 40px; height: 40px; border-radius: 100%; display: flex; justify-content: center; align-items: center; font-size: 40px; font-weight: bold; cursor: pointer;">&times;</span>
+    
+    <!-- Kontener dla zdjęcia, który dopasowuje się do rozmiaru obrazu -->
+    <div style="position: relative; display: flex; justify-content: center; align-items: center; height: auto;">
+        
+        <!-- Strzałka w lewo -->
+        <div style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); width: 40px; height: 40px; color: #5d5d5d; font-size: 30px; font-weight: bold; cursor: pointer; padding: 10px; background-color: #eeeeee; border-radius: 100%; display: flex; justify-content: center; align-items: center;" onclick="changeImage(-1)">
+            <span>&lt;</span>
+        </div>
+        
+        <!-- Strzałka w prawo -->
+        <div style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); width: 40px; height: 40px; color: #5d5d5d; font-size: 30px; font-weight: bold; cursor: pointer; padding: 10px; background-color: #eeeeee; border-radius: 100%; display: flex; justify-content: center; align-items: center;" onclick="changeImage(1)">
+            <span>&gt;</span>
+        </div>
+        
+        <!-- Zdjęcie -->
+        <img id="modalImg" style="max-width: 80%; max-height: 80%; object-fit: contain;">
+        
+        <!-- Licznik zdjęć -->
+        <div id="imageCounter" 
+     style="position: absolute; bottom: -60px; left: 50%; transform: translateX(-50%); 
+            color: #5d5d5d; font-size: 16px; font-weight: bold; background-color: #eeeeee;
+            border-radius: 50%; display: flex; justify-content: center; align-items: center;
+            width: 40px; height: 40px;">
+    1/3
+        </div>
+
+    </div>
+</div>
+
+<script>
+    let currentIndex = 0; // Zmienna przechowująca indeks aktualnie wyświetlanego zdjęcia
+
+    // Funkcja inicjująca dynamiczną tablicę zdjęć
+    function initImages() {
+        // Zbieramy wszystkie obrazki w galerii, które mają 'onclick'
+        const imgs = document.querySelectorAll('img[onclick="openModal(this, 0)"], img[onclick="openModal(this, 1)"], img[onclick="openModal(this, 2)"]');
+        return Array.from(imgs).map(img => img.src); // Tworzymy tablicę ze źródłami zdjęć
+    }
+
+    const images = initImages(); // Inicjalizacja tablicy zdjęć na początku
+
+    // Funkcja otwierająca modal
+    function openModal(img, index) {
+        currentIndex = index;  // Ustawienie indeksu zdjęcia
+        var modal = document.getElementById("myModal");
+        var modalImg = document.getElementById("modalImg");
+        var imageCounter = document.getElementById("imageCounter");
+        modal.style.display = "block";
+        modalImg.src = img.src;
+        imageCounter.textContent = `${currentIndex + 1}/${images.length}`; // Ustawienie licznika
+    }
+
+    // Funkcja zamykająca modal
+    function closeModal() {
+        var modal = document.getElementById("myModal");
+        modal.style.display = "none";
+    }
+
+    // Funkcja zmieniająca zdjęcie w modal
+    function changeImage(direction) {
+        currentIndex += direction;
+        if (currentIndex < 0) currentIndex = images.length - 1;  // Przechodzimy na ostatnie zdjęcie
+        if (currentIndex >= images.length) currentIndex = 0;  // Przechodzimy na pierwsze zdjęcie
+        var modalImg = document.getElementById("modalImg");
+        var imageCounter = document.getElementById("imageCounter");
+        modalImg.src = images[currentIndex];
+        imageCounter.textContent = `${currentIndex + 1}/${images.length}`; // Aktualizacja licznika zdjęć
+    }
+
+    // Inicjalizacja zdjęć, jeśli zmienia się liczba zdjęć
+    window.addEventListener('load', function() {
+        const imgs = initImages();
+        images.length = 0; // Resetujemy tablicę
+        images.push(...imgs); // Przypisujemy nową tablicę
+    });
+</script>
+
 
     <script>
         console.log('Iframe script is running!');
