@@ -97,7 +97,7 @@
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin-top: 15px;">
                     <a href="https://www.bio-rad.com/en-us/product/t100-thermal-cycler" 
                        target="_blank"
-                       style="background: rgba(255,255,255,0.7); padding: 12px; border-radius: 10px; text-decoration: none; color: #2c3e50; display: flex; align-items: center; box-shadow: 0 3px 6px rgba(0,0,0,0.1);" rel="noopener noreferrer">
+                       style="background: rgba(255,255,255,0.7); padding: 12px; border-radius: 10px; text-decoration: none; color: #2c3e50; display: flex; align-items: center; box-shadow: 0 3px 6px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;" rel="noopener noreferrer">
                         <img src="https://cmd.ump.edu.pl/media/uid/7_c914c2-_4040db9c7-/acdd-3.png"
                              alt="external link icon"
                              style="width: 36px; height: 36px; margin-left: -4px; margin-right: 10px; padding: 6px; background: rgba(231,76,60,0.1); border-radius: 50%;">
@@ -116,7 +116,7 @@
 
                     <a href="https://www.bio-rad.com/en-pl/category/ptc-tempo-thermal-cyclers?ID=ce596d3f-3ebe-7151-5e8e-0298b3daada9" 
                        target="_blank"
-                       style="background: rgba(255,255,255,0.7); padding: 12px; border-radius: 10px; text-decoration: none; color: #2c3e50; display: flex; align-items: center; box-shadow: 0 3px 6px rgba(0,0,0,0.1);" rel="noopener noreferrer">
+                       style="background: rgba(255,255,255,0.7); padding: 12px; border-radius: 10px; text-decoration: none; color: #2c3e50; display: flex; align-items: center; box-shadow: 0 3px 6px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;" rel="noopener noreferrer">
                         <img src="https://cmd.ump.edu.pl/media/uid/7_c914c2-_4040db9c7-/acdd-3.png"
                              alt="external link icon"
                              style="width: 36px; height: 36px; margin-left: -4px; margin-right: 10px; padding: 6px; background: rgba(231,76,60,0.1); border-radius: 50%;">
@@ -217,6 +217,22 @@
     });
 </script>
 
+<script>
+    document.querySelectorAll('a').forEach(function(link) {
+     link.addEventListener('mouseover', function() {
+         link.style.boxShadow = '0 10px 20px rgba(35,183,245,0.4)';
+         link.style.transform = 'scale(1.01)';
+         link.style.background = 'rgba(250, 255, 255, 0.7)'; // Zmiana tła na ciemniejsze
+     });
+
+    link.addEventListener('mouseout', function() {
+        link.style.boxShadow = '0 3px 6px rgba(0,0,0,0.1)';
+        link.style.transform = 'scale(1)';
+        link.style.background = 'rgba(255,255,255,0.7)';
+    });
+});
+</script>
+   
 
     <script>
         console.log('Iframe script is running!');
