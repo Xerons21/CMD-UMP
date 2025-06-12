@@ -1,6 +1,134 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.css" integrity="sha512-GmZYQ9SKTnOea030Tbiat0Y+jhnYLIpsGAe6QTnToi8hI2nNbVMETHeK4wm4MuYMQdrc38x+sX77+kVD01eNsQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.css" integrity="sha512-GmZYQ9SKTnOea030Tbiat0Y+jhnYLIpsGAe6QTnToi8hI2nNbVMETHeK4wm4MuYMQdrc38x+sX77+kVD01eNsQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /><!-- Pasek językowy -->
 <body style="font-family: Arial, sans-serif; margin: 0; line-height: 1.6;">
+
+<!-- Pasek językowy -->
+<div id="language-bar" style="
+  background-color: white;
+  padding: 8px 16px;
+  text-align: right;
+  border-bottom: 0px solid #eee;
+">
+  <div style="display: inline-flex; align-items: center; gap: 10px;">
+    <span class="lang-option active" data-lang="pl" onclick="translateTo('pl')">
+      <img src="https://flagcdn.com/w40/pl.png" alt="PL" class="flag-icon"> <span class="lang-label">PL</span>
+    </span>
+
+    <div class="separator"></div>
+
+    <span class="lang-option" data-lang="en" onclick="translateTo('en')">
+      <img src="https://flagcdn.com/w40/gb.png" alt="EN" class="flag-icon"> <span class="lang-label">EN</span>
+    </span>
+  </div>
+</div>
+
+<!-- Google Translate element (ukryty) -->
+<div id="google_translate_element" style="display:none;"></div>
+
+<!-- STYLE -->
+<style>
+  .lang-option {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+    color: #333;
+  }
+
+  .lang-option.active {
+    background-color: #e6f0ff;
+    font-weight: bold;
+  }
+
+  .flag-icon {
+    height: 20px;
+    vertical-align: middle;
+  }
+
+  .separator {
+    width: 1px;
+    height: 24px;
+    background-color: #ccc;
+    border-radius: 1px;
+  }
+
+  /* Ukryj elementy Google Translate */
+  .goog-logo-link,
+  .goog-te-gadget span {
+    display: none !important;
+  }
+
+  .goog-te-gadget {
+    font-size: 0 !important;
+  }
+
+  body > .skiptranslate,
+  .goog-te-banner-frame.skiptranslate {
+    display: none !important;
+  }
+
+  html, body {
+    margin-top: 0px !important;
+    top: 0px !important;
+  }
+</style>
+
+<!-- JS -->
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'pl',
+      autoDisplay: false
+    }, 'google_translate_element');
+  }
+
+  function translateTo(lang) {
+    const select = document.querySelector(".goog-te-combo");
+    
+    if (lang === 'pl') {
+      // Jeśli jest włączone tłumaczenie (select ma wartość inną niż pusta), przeładuj stronę, aby wrócić do oryginału
+      if (select && select.value && select.value !== '') {
+        location.href = location.pathname + location.search + location.hash;
+        return; // przerwij funkcję, bo nastąpi przeładowanie
+      }
+      // Jeśli już jest polski, ustaw aktywny przycisk bez dalszych działań
+    } else {
+      // Dla angielskiego ustaw wartość select i wywołaj zdarzenie change
+      if (select) {
+        let option = Array.from(select.options).find(opt => opt.value.startsWith(lang));
+        if (option) {
+          select.value = option.value;
+          select.dispatchEvent(new Event('change'));
+        }
+      }
+    }
+
+    // Aktualizuj klasę active dla przycisków
+    document.querySelectorAll('.lang-option').forEach(el => {
+      el.classList.remove('active');
+    });
+    const activeBtn = document.querySelector(`.lang-option[data-lang="${lang}"]`);
+    if (activeBtn) activeBtn.classList.add('active');
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const select = document.querySelector(".goog-te-combo");
+    if (select && select.value && select.value !== '') {
+      // Jeśli tłumaczenie jest już włączone, ustaw aktywny język odpowiednio
+      const lang = select.value.startsWith('en') ? 'en' : 'pl';
+      translateTo(lang);
+    } else {
+      // Domyślnie ustaw polski, ale nie przeładowuj strony
+      translateTo('pl');
+    }
+  });
+</script>
+
+<!-- Google Translate API -->
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <div style="width: 95%; max-width: 1200px; margin: 0 auto; padding: 10px;">
         <!-- Sekcja kontaktowa -->
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin-bottom: 15px;">
@@ -21,6 +149,7 @@
                     <p style="color: #2c3e50; font-size: clamp(0.9em, 3vw, 1em); margin: 0 0 10px 0;">
                         W sprawie nowych zleceń lub dodatkowych pytań dotyczących usług i aparatury zapraszamy do kontaktu. Jesteśmy dostępni dla Państwa pod adresem:
                     </p>
+                    
                     
                     <div style="margin-bottom: 30px; ">
                          <!-- Mail -->
