@@ -42,7 +42,6 @@
                         text-decoration: none; 
                         color: #2c3e50; 
                         display: flex;
-                        width: 400px;
                         margin: 20 auto; 
                         align-items: center; 
                         box-shadow: 0 3px 6px rgba(0,0,0,0.1);
@@ -70,43 +69,13 @@
 <script>
    document.querySelectorAll('a:not(.no-anim)').forEach(function(link) {
     link.addEventListener('mouseover', function() {
-        link.style.boxShadow = '0 10px 20px rgba(35,183,245,0.4)';
         link.style.transform = 'scale(1.05)';
         link.style.background = 'rgba(250, 255, 255, 0.7)'; // Zmiana tła na ciemniejsze
     });
 
     link.addEventListener('mouseout', function() {
-        link.style.boxShadow = '0 3px 6px rgba(0,0,0,0.1)';
         link.style.transform = 'scale(1)';
         link.style.background = 'rgba(255,255,255,0.7)';
     });
 });
 </script>
-
-<style>
-/* tylko dla przycisku .formularz */
-.formularz {
-  animation: gentlePulse 8s ease-in-out infinite;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  transform-origin: center center;
-  will-change: transform, box-shadow;
-}
-
-/* Subtelna animacja pulsowania */
-@keyframes gentlePulse {
-  0%, 100% {
-    transform: scale(1.015);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-  }
-  50% {
-    transform: scale(1.02);
-    box-shadow: 0 8px 18px rgba(35, 183, 245, 0.5);
-  }
-}
-
-/* Zatrzymanie animacji podczas hover */
-.formularz:hover {
-  animation: none;
-}
-</style>
