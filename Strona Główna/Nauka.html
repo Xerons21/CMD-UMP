@@ -1,272 +1,112 @@
 <body style="font-family: Arial, sans-serif; margin: 0; line-height: 1.6;">
 <!-- Pasek językowy -->
-<div id="language-bar" style="
-  background-color: white;
-  padding: 8px 16px;
-  text-align: right;
-  border-bottom: 0px solid #eee;
-">
-  <div style="display: inline-flex; align-items: center; gap: 10px;">
+<div id="language-bar" style="background-color:white;padding:8px 16px;text-align:right;border-bottom:0px solid #eee;">
+  <div style="display:inline-flex;align-items:center;gap:10px;">
     <span class="lang-option active" data-lang="pl" onclick="translateTo('pl')">
       <img src="https://flagcdn.com/w40/pl.png" alt="PL" class="flag-icon"> <span class="lang-label">PL</span>
     </span>
-
     <div class="separator"></div>
-
     <span class="lang-option" data-lang="en" onclick="translateTo('en')">
       <img src="https://flagcdn.com/w40/gb.png" alt="EN" class="flag-icon"> <span class="lang-label">EN</span>
     </span>
   </div>
 </div>
 
-<!-- Google Translate element (ukryty) -->
 <div id="google_translate_element" style="display:none;"></div>
 
-<!-- STYLE -->
 <style>
-  .lang-option {
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 14px;
-    padding: 4px 10px;
-    border-radius: 6px;
-    transition: background-color 0.3s;
-    color: #333;
-  }
-
-  .lang-option.active {
-    background-color: #e6f0ff;
-    font-weight: bold;
-  }
-
-  .flag-icon {
-    height: 20px;
-    vertical-align: middle;
-  }
-
-  .separator {
-    width: 1px;
-    height: 24px;
-    background-color: #ccc;
-    border-radius: 1px;
-  }
-
-  /* Ukryj elementy Google Translate */
-  .goog-logo-link,
-  .goog-te-gadget span {
-    display: none !important;
-  }
-
-  .goog-te-gadget {
-    font-size: 0 !important;
-  }
-
-  body > .skiptranslate,
-  .goog-te-banner-frame.skiptranslate {
-    display: none !important;
-  }
-
-  html, body {
-    margin-top: 0px !important;
-    top: 0px !important;
-  }
+  .lang-option{cursor:pointer;display:inline-flex;align-items:center;gap:6px;font-size:14px;padding:4px 10px;border-radius:6px;transition:background-color 0.3s;color:#333;}
+  .lang-option.active{background-color:#e6f0ff;font-weight:bold;}
+  .flag-icon{height:20px;vertical-align:middle;}
+  .separator{width:1px;height:24px;background-color:#ccc;border-radius:1px;}
+  .goog-logo-link,.goog-te-gadget span{display:none!important;}
+  .goog-te-gadget{font-size:0!important;}
+  body>.skiptranslate,.goog-te-banner-frame.skiptranslate{display:none!important;}
+  html,body{margin-top:0!important;top:0!important;}
 </style>
 
-<!-- JS -->
 <script type="text/javascript">
   function googleTranslateElementInit() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'pl',
-      autoDisplay: false
-    }, 'google_translate_element');
+    new google.translate.TranslateElement({pageLanguage:'pl',autoDisplay:false},'google_translate_element');
   }
-
   function translateTo(lang) {
-    const select = document.querySelector(".goog-te-combo");
-    
-    if (lang === 'pl') {
-      // Jeśli jest włączone tłumaczenie (select ma wartość inną niż pusta), przeładuj stronę, aby wrócić do oryginału
-      if (select && select.value && select.value !== '') {
-        location.href = location.pathname + location.search + location.hash;
-        return; // przerwij funkcję, bo nastąpi przeładowanie
-      }
-      // Jeśli już jest polski, ustaw aktywny przycisk bez dalszych działań
-    } else {
-      // Dla angielskiego ustaw wartość select i wywołaj zdarzenie change
-      if (select) {
-        let option = Array.from(select.options).find(opt => opt.value.startsWith(lang));
-        if (option) {
-          select.value = option.value;
-          select.dispatchEvent(new Event('change'));
-        }
-      }
-    }
-
-    // Aktualizuj klasę active dla przycisków
-    document.querySelectorAll('.lang-option').forEach(el => {
-      el.classList.remove('active');
-    });
-    const activeBtn = document.querySelector(`.lang-option[data-lang="${lang}"]`);
-    if (activeBtn) activeBtn.classList.add('active');
+    const select=document.querySelector(".goog-te-combo");
+    if(lang==='pl'){if(select&&select.value&&select.value!==''){location.href=location.pathname+location.search+location.hash;return;}}
+    else{if(select){let option=Array.from(select.options).find(opt=>opt.value.startsWith(lang));if(option){select.value=option.value;select.dispatchEvent(new Event('change'));}}}
+    document.querySelectorAll('.lang-option').forEach(el=>el.classList.remove('active'));
+    const activeBtn=document.querySelector(`.lang-option[data-lang="${lang}"]`);
+    if(activeBtn)activeBtn.classList.add('active');
   }
-
-  window.addEventListener('DOMContentLoaded', () => {
-    const select = document.querySelector(".goog-te-combo");
-    if (select && select.value && select.value !== '') {
-      // Jeśli tłumaczenie jest już włączone, ustaw aktywny język odpowiednio
-      const lang = select.value.startsWith('en') ? 'en' : 'pl';
-      translateTo(lang);
-    } else {
-      // Domyślnie ustaw polski, ale nie przeładowuj strony
-      translateTo('pl');
-    }
+  window.addEventListener('DOMContentLoaded',()=>{
+    const select=document.querySelector(".goog-te-combo");
+    if(select&&select.value&&select.value!==''){const lang=select.value.startsWith('en')?'en':'pl';translateTo(lang);}
+    else{translateTo('pl');}
   });
 </script>
 
-<!-- Google Translate API -->
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-
-    <div style="width: 95%; max-width: 1200px; margin: 0 auto; padding: 20px;">
-        <!-- Sekcja realizowanych badań -->
-        <div style="
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        ">
-            <div style="
-                background: linear-gradient(135deg, #e8f4f8 0%, #ffffff 100%);
-                border-radius: 15px;
-                padding: 20px;
-                box-shadow: 0 4px 8px rgba(35,183,245,0.15);
-                border-left: 8px solid #3498db;
-                min-width: 0;
-                width: 100%;
-                box-sizing: border-box;
-                word-wrap: break-word;
-            ">
-                <h2 style="color: #2980b9; padding-bottom: 8px; margin-bottom: 20px; font-size: clamp(1.2em, 4vw, 1.4em); border-image: linear-gradient(to right, #30c4f4, #23b7f5) 1; border-width: 0 0 2px 0; border-style: solid; text-align: left;">
-                    REALIZOWANE BADANIA
-                </h2>
-                <div style="background: rgba(255,255,255,0.7); padding: 20px; border-radius: 10px;">
-                    <ul style="color: #2c3e50; margin: 0; padding-left: 20px; list-style-type: none; text-align: left;">
-                      <li style="margin-bottom: 12px; font-size: clamp(0.9em, 3vw, 1em); padding-left: 5px; position: relative; text-align: left; line-height: 1.4;">
-                            <span style="color: #3498db; position: absolute; left: -20px;"
-                            >&bull;</span>
-                            Wpływ dysfunkcyjnych cząsteczek HDL na przebieg
-cukrzycy typu 1
-                        </li>
-                        <li style="margin-bottom: 12px; font-size: clamp(0.9em, 3vw, 1em); padding-left: 5px; position: relative; text-align: left; line-height: 1.4;">
-                            <span style="color: #3498db; position: absolute; left: -20px;"
-                            >&bull;</span>
-                            Sekwencjonowanie DNA z ludzkich homogenatów tkankowych i indifikacja bakterii
-                        </li>
-                        <li style="margin-bottom: 12px; font-size: clamp(0.9em, 3vw, 1em); padding-left: 5px; position: relative; text-align: left; line-height: 1.4;">
-                            <span style="color: #3498db; position: absolute; left: -20px;"
-                            >&bull;</span>
-                            Izolacja DNA i RNA z ludzkich homogenatów tkankowych
-                        </li>
-                        <li style="margin-bottom: 12px; font-size: clamp(0.9em, 3vw, 1em); padding-left: 5px; position: relative; text-align: left; line-height: 1.4;">
-                            <span style="color: #3498db; position: absolute; left: -20px;"
-                            >&bull;</span>
-                            Zależne od płci zmiany w ekspresji genów w ludzkich komórkach śródbłonka żyły pępowinowej stymulowanych estradiolem
-                        </li>
-                        <li style="margin-bottom: 12px; font-size: clamp(0.9em, 3vw, 1em); padding-left: 5px; position: relative; text-align: left; line-height: 1.4;">
-                            <span style="color: #3498db; position: absolute; left: -20px;"
-                            >&bull;</span>
-                            Czy płeć komórek ma znaczenie? Porównanie wzorca ekspresji długich niekodujących RNA w&nbsp;komórkach endotelialnych pochodzących od kobiet i od mężczyzn
-                        </li>
-                        
-                        <li style="margin-bottom: 12px; font-size: clamp(0.9em, 3vw, 1em); padding-left: 5px; position: relative; text-align: left; line-height: 1.4;">
-                            <span style="color: #3498db; position: absolute; left: -20px;"
-                            >&bull;</span>
-                            Oznaczenie modułu Young'a w kolagenie osób z hEDS
-                        </li>
-                        <li style="margin-bottom: 12px; font-size: clamp(0.9em, 3vw, 1em); padding-left: 5px; position: relative; text-align: left; line-height: 1.4;">
-                            <span style="color: #3498db; position: absolute; left: -20px;"
-                            >&bull;</span>
-                            Ocena wpływu diety o niskim indeksie glikemicznym na stężenie białka FAM19A5 oraz&nbsp;wybranych parametrów gospodarki lipidowej, węglowodanowej i stresu oksydacyjnego w&nbsp;grupie kobiet z rozpoznaną insulinoopornością
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Sekcja ukończonych badań -->
-        <div style="
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        ">
-            <div style="
-                background: linear-gradient(135deg, #e8f4f8 0%, #ffffff 100%);
-                border-radius: 15px;
-                padding: 20px;
-                box-shadow: 0 4px 8px rgba(35,183,245,0.15);
-                border-left: 8px solid #27ae60;
-                min-width: 0;
-                width: 100%;
-                box-sizing: border-box;
-                word-wrap: break-word;
-            ">
-                <h2 style="color: #2980b9; padding-bottom: 8px; margin-bottom: 20px; font-size: clamp(1.2em, 4vw, 1.4em); border-image: linear-gradient(to right, #30c4f4, #23b7f5) 1; border-width: 0 0 2px 0; border-style: solid; text-align: left;">
-                    UKOŃCZONE BADANIA
-                </h2>
-                <div style="background: rgba(255,255,255,0.7); padding: 20px; border-radius: 10px;">
-                    <ul style="color: #2c3e50; margin: 0; padding-left: 20px; list-style-type: none; text-align: left;">
-                        <li style="margin-bottom: 12px; font-size: clamp(0.9em, 3vw, 1em); padding-left: 5px; position: relative; text-align: left; line-height: 1.4;">
-                            <span style="color: #27ae60; position: absolute; left: -20px;"
-                            >✓</span>
-                            Ocena wpływu transfekcji miR-223-3p na regulację odpowiedzi na deksmetazon w&nbsp;hodowli in&nbsp;vitro i ex vivo mysich ILC2
-                        <li style="margin-bottom: 12px; font-size: clamp(0.9em, 3vw, 1em); padding-left: 5px; position: relative; text-align: left; line-height: 1.4;">
-                            <span style="color: #27ae60; position: absolute; left: -20px;"
-                            >✓</span>
-                            Ocena chronotypu, chronożywienia i stylu życia oraz wybranych biomarkerów w ślinie i surowicy wśród pacjentów z rozpoznanym rakiem pęcherza moczowego
-                        </li>
-                      <li style="margin-bottom: 12px; font-size: clamp(0.9em, 3vw, 1em); padding-left: 5px; position: relative; text-align: left; line-height: 1.4;">
-                            <span style="color: #27ae60; position: absolute; left: -20px;"
-                            >✓</span>
-                            Zmiany fenotypu komórek mezotelium odpowiedzialne za formowanie niszy metastatycznej w&nbsp;otrzewnej ściennej w raku jajnika
-                        </li>
-                        <li style="margin-bottom: 12px; font-size: clamp(0.9em, 3vw, 1em); padding-left: 5px; position: relative; text-align: left; line-height: 1.4;">
-                            <span style="color: #27ae60; position: absolute; left: -20px;"
-                            >✓</span>
-                            Narzędzia w terapii glejaka wielopostaciowego
-                        </li>
-                        <li style="margin-bottom: 12px; font-size: clamp(0.9em, 3vw, 1em); padding-left: 5px; position: relative; text-align: left; line-height: 1.4;">
-                            <span style="color: #27ae60; position: absolute; left: -20px;"
-                            >✓</span>
-                            Analiza spektrofotometryczna UV Vis grzybów kwasolubnych
-                        </li>
-                        <li style="margin-bottom: 12px; font-size: clamp(0.9em, 3vw, 1em); padding-left: 5px; position: relative; text-align: left; line-height: 1.4;">
-                            <span style="color: #27ae60; position: absolute; left: -20px;"
-                            >✓</span>
-                            Pomiar pH buforów do oceny beta-galaktozydazy związanej ze starzeniem (SA-B-gal)
-                        </li>
-                        <li style="margin-bottom: 12px; font-size: clamp(0.9em, 3vw, 1em); padding-left: 5px; position: relative; text-align: left; line-height: 1.4;">
-                            <span style="color: #27ae60; position: absolute; left: -20px;"
-                            >✓</span>
-                            Wpływ suplementacji preparatem probiotycznym i/lub berberyną na profil kardio-metaboliczny, mikrobiotyczny oraz wykładniki stłuszczenia wątroby u&nbsp;pacjentów z niealkoholowym stłuszczeniem wątroby – badanie randomizowane z podwójną ślepą próbą
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+<div style="width:95%;max-width:1200px;margin:0 auto;padding:20px;">
+  <!-- Sekcja realizowanych badań -->
+  <div class="section" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-bottom:30px;">
+    <div class="box" style="background:linear-gradient(135deg,#e8f4f8 0%,#ffffff 100%);border-radius:15px;padding:20px;box-shadow:0 4px 8px rgba(35,183,245,0.15);border-left:8px solid #3498db;">
+      <h2 style="color:#2980b9;padding-bottom:8px;margin-bottom:20px;font-size:clamp(1.2em,4vw,1.4em);border-image:linear-gradient(to right,#30c4f4,#23b7f5) 1;border-width:0 0 2px 0;border-style:solid;text-align:left;">
+        REALIZOWANE BADANIA
+      </h2>
+      <div class="content" id="ongoing"></div>
     </div>
+  </div>
 
-    <script>
-        console.log('Iframe script is running!');
-        window.addEventListener('load', function() {
-          document.fonts.ready.then(() => {
-            const scrollHeight = document.body.scrollHeight;
-            const offsetHeight = document.body.offsetHeight;
-            console.log('scrollHeight:', scrollHeight);
-            console.log('offsetHeight:', offsetHeight);
-            window.parent.postMessage({ type: 'iframeHeight', height: offsetHeight }, '*');
-          });
-        });
-      </script>
+  <!-- Sekcja ukończonych badań -->
+  <div class="section" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;">
+    <div class="box" style="background:linear-gradient(135deg,#e8f4f8 0%,#ffffff 100%);border-radius:15px;padding:20px;box-shadow:0 4px 8px rgba(35,183,245,0.15);border-left:8px solid #27ae60;">
+      <h2 style="color:#2980b9;padding-bottom:8px;margin-bottom:20px;font-size:clamp(1.2em,4vw,1.4em);border-image:linear-gradient(to right,#30c4f4,#23b7f5) 1;border-width:0 0 2px 0;border-style:solid;text-align:left;">
+        UKOŃCZONE BADANIA
+      </h2>
+      <div class="content" id="completed"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ✏️ Tutaj wpisujesz badania jako zwykły tekst z myślnikami
+  const ongoingText = `
+  Wpływ dysfunkcyjnych cząsteczek HDL na przebieg cukrzycy typu 1
+  - Sekwencjonowanie DNA z ludzkich homogenatów tkankowych i identyfikacja bakterii
+  - Izolacja DNA i RNA z ludzkich homogenatów tkankowych
+  - Zależne od płci zmiany w ekspresji genów w ludzkich komórkach śródbłonka żyły pępowinowej stymulowanych estradiolem
+  - Czy płeć komórek ma znaczenie? Porównanie wzorca ekspresji długich niekodujących RNA w komórkach endotelialnych pochodzących od kobiet i od mężczyzn
+  - Oznaczenie modułu Young'a w kolagenie osób z hEDS
+  - Ocena wpływu diety o niskim indeksie glikemicznym na stężenie białka FAM19A5 oraz wybranych parametrów gospodarki lipidowej, węglowodanowej i stresu oksydacyjnego w grupie kobiet z rozpoznaną insulinoopornością
+  `;
+
+  const completedText = `
+  Ocena wpływu transfekcji miR-223-3p na regulację odpowiedzi na deksmetazon w hodowli in vitro i ex vivo mysich ILC2
+  - Ocena chronotypu, chronożywienia i stylu życia oraz wybranych biomarkerów w ślinie i surowicy wśród pacjentów z rozpoznanym rakiem pęcherza moczowego
+  - Zmiany fenotypu komórek mezotelium odpowiedzialne za formowanie niszy metastatycznej w otrzewnej ściennej w raku jajnika
+  - Narzędzia w terapii glejaka wielopostaciowego
+  - Analiza spektrofotometryczna UV Vis grzybów kwasolubnych
+  - Pomiar pH buforów do oceny beta-galaktozydazy związanej ze starzeniem (SA-B-gal)
+  - Wpływ suplementacji preparatem probiotycznym i/lub berberyną na profil kardio-metaboliczny, mikrobiotyczny oraz wykładniki stłuszczenia wątroby u pacjentów z niealkoholowym stłuszczeniem wątroby – badanie randomizowane z podwójną ślepą próbą
+  `;
+
+  // 🧩 Funkcja konwertująca tekst na listę HTML
+  function renderList(text, color) {
+    const items = text.trim().split(/\n\s*-\s*/).filter(Boolean);
+    return `<ul style="list-style:none;padding-left:20px;margin:0;">` +
+      items.map(item => `<li style="margin-bottom:12px;font-size:clamp(0.9em,3vw,1em);padding-left:5px;position:relative;line-height:1.4;">
+        <span style="color:${color};position:absolute;left:-20px;">${color==='#27ae60'?'✓':'•'}</span>${item.trim()}</li>`).join('') +
+      `</ul>`;
+  }
+
+  document.getElementById('ongoing').innerHTML = renderList(ongoingText, '#3498db');
+  document.getElementById('completed').innerHTML = renderList(completedText, '#27ae60');
+
+  // Utrzymanie wysokości w iframe
+  window.addEventListener('load', function() {
+    document.fonts.ready.then(() => {
+      window.parent.postMessage({ type: 'iframeHeight', height: document.body.offsetHeight }, '*');
+    });
+  });
+</script>
 </body>
