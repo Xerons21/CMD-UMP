@@ -51,7 +51,7 @@
   <div class="section" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-bottom:30px;">
     <div class="box" style="background:linear-gradient(135deg,#e8f4f8 0%,#ffffff 100%);border-radius:15px;padding:20px;box-shadow:0 4px 8px rgba(35,183,245,0.15);border-left:8px solid #3498db;">
       <h2 style="color:#2980b9;padding-bottom:8px;margin-bottom:20px;font-size:clamp(1.2em,4vw,1.4em);border-image:linear-gradient(to right,#30c4f4,#23b7f5) 1;border-width:0 0 2px 0;border-style:solid;text-align:left;">
-        REALIZOWANE BADANIA
+       AKTUALNIE REALIZOWANE BADANIA
       </h2>
       <div class="content" id="ongoing"></div>
     </div>
@@ -69,29 +69,39 @@
 </div>
 
 <script>
-  // ✏️ Tutaj wpisujesz badania jako zwykły tekst z myślnikami
+  // ✏️ Tutaj wpisujesz badania jako zwykły tekst z myślnikami update na stan 27.02.2026
   const ongoingText = `
   Wpływ dysfunkcyjnych cząsteczek HDL na przebieg cukrzycy typu 1
-  - Sekwencjonowanie DNA z ludzkich homogenatów tkankowych i identyfikacja bakterii
-  - Izolacja DNA i RNA z ludzkich homogenatów tkankowych
-  - Zależne od płci zmiany w ekspresji genów w ludzkich komórkach śródbłonka żyły pępowinowej stymulowanych estradiolem
-  - Czy płeć komórek ma znaczenie? Porównanie wzorca ekspresji długich niekodujących RNA w komórkach endotelialnych pochodzących od kobiet i od mężczyzn
-  - Rola cząsteczek miRNA śliny w diagnostyce endometriozy
+  - Analiza ekspresji oksygenazy hemowej HO-1 metodą Western blot w liniach komórkowych raka jajnika A2780 i SKOV-3
+  - Działanie Terapii Fotodynamicznej i leków w Leczeniu Czerniaka z Mutacją BRAF V600E/K: badania in vitro
+  - Analiza funkcjonalna wariantów c.878T>C p.(Leu293Pro) oraz c.586 G>A p.(Val196Met) w genie CYP26B1 
+  - Analiza rodziny genów CACNA u chorych z migreną metodą NGS
+  - Charakterystyka parametrów elastyczności naczyniowej
   - Analiza polimorfizmów rs12722 i rs13946 genu COL5A1
+  - Analiza strukturalna granul stresowych
+  - Nowe strategie w leczeniu niedrobnokomórkowego raka płuca oparte o jedwabne nanonośniki ukierunkowane na unaczynienie guza
   - Mikroflora kanału szyjki macicy i endometrium u pacjentek leczonych operacyjnie histeroskopowo
   -Ocena poziomu cytokin i wybranych czynników wzrostu w cieczy wodnistej jako predyktor skuteczności leczenia chiruricznego zaćmy u pacjentów z jaskrą wtórną w przebiegu zespołu pseudoeksfoliacji (PGXG)
-  - Ocena wybranych parametrów metabolicznych i antropometrycznych, u noworodków z wewnątrzmacicznym i zewnątrzmacicznym zahamowaniem wzrostu
-- Analiza cytometryczna fluorescencji komórek lini DLD-1
-- Analiza mikroskopowej fluorescencji komórek lini DLD-1
 - Przystosowanie reakcji z dihydrorodaminą, do oceny wpływu abtybiotyków na aktywność granulocytów oraz przygotowanie wyników wstępnych do projektu NCN-OPUS obejmujących wpływ antybiotyków na aktywność granulocytów i innych komórek układu immunologicznego
-- RE-SENSE: Lipidowe nanocząsteczki z podwójnym cargo w zwalczaniu oporności komórek niedrobnokomórkowego raka płuca na terapię spersonalizowaną
-- Biblioteka fagów prezentujących zmienne regiony lekkich i ciężkich łańcuchów przeciwciał
+
 
 
   `;
 
   const completedText = `
-  Ocena wpływu transfekcji miR-223-3p na regulację odpowiedzi na deksmetazon w hodowli in vitro i ex vivo mysich ILC2
+  Ocena parametrów biochemicznych śliny u pacjentów z chorobą Gravesa-BasedowaKluczowe zadanie: Analiza biochemiczna próbek śliny
+  - Hodowla komórkowa komórek szczepionkowych
+  - Analiza wybranych białek w etiopatogenezie tętniaków naczyń wieńcowych 
+  - Sekwencjonowanie DNA z ludzkich homogenatów tkankowych i identyfikacja bakterii
+  - Izolacja DNA i RNA z ludzkich homogenatów tkankowych
+  - Zależne od płci zmiany w ekspresji genów w ludzkich komórkach śródbłonka żyły pępowinowej stymulowanych estradiolem
+  - Czy płeć komórek ma znaczenie? Porównanie wzorca ekspresji długich niekodujących RNA w komórkach endotelialnych pochodzących od kobiet i od mężczyzn
+  - Rola cząsteczek miRNA śliny w diagnostyce endometriozy
+  - Ocena wybranych parametrów metabolicznych i antropometrycznych, u noworodków z wewnątrzmacicznym i zewnątrzmacicznym zahamowaniem wzrostu
+- Analiza cytometryczna i mikroskopowa fluorescencji komórek lini DLD-1
+  - RE-SENSE: Lipidowe nanocząsteczki z podwójnym cargo w zwalczaniu oporności komórek niedrobnokomórkowego raka płuca na terapię spersonalizowaną
+- Biblioteka fagów prezentujących zmienne regiony lekkich i ciężkich łańcuchów przeciwciał
+  - Ocena wpływu transfekcji miR-223-3p na regulację odpowiedzi na deksmetazon w hodowli in vitro i ex vivo mysich ILC2
   - Ocena chronotypu, chronożywienia i stylu życia oraz wybranych biomarkerów w ślinie i surowicy wśród pacjentów z rozpoznanym rakiem pęcherza moczowego
   - Zmiany fenotypu komórek mezotelium odpowiedzialne za formowanie niszy metastatycznej w otrzewnej ściennej w raku jajnika
   - Narzędzia w terapii glejaka wielopostaciowego
