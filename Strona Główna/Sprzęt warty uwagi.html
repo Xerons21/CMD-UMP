@@ -1366,6 +1366,49 @@
          // }
         ];
 
+        // Główna kolejność kafelków (stan obecny).
+        // Aby zrobić roszady, przestawiaj tylko kolejność wpisów poniżej.
+        const mainEquipmentOrder = [
+          "https://cmd.ump.edu.pl/sprzet/cytoflex_nano#text-resizer",
+          "https://cmd.ump.edu.pl/sprzet/promethion2#text-resizer",
+          "https://cmd.ump.edu.pl/sprzet/cytoflex#text-resizer",
+          "https://cmd.ump.edu.pl/sprzet/mikroskop_konfokalny#text-resizer",
+          "https://cmd.ump.edu.pl/sprzet/Maxwell_RSC_48#text-resizer",
+          "https://cmd.ump.edu.pl/sprzet/NanoDrop#text-resizer",
+          "https://cmd.ump.edu.pl/sprzet/Bio-Rad_T100_i_PTC_Tempo_96#text-resizer",
+          "https://cmd.ump.edu.pl/sprzet/COBAS_Z480#text-resizer",
+          "https://cmd.ump.edu.pl/sprzet/Thermo_Scientific_Sorvall_MX-120_Plus#text-resizer",
+          "https://cmd.ump.edu.pl/sprzet/TapeStation_2200#text-resizer",
+          "https://cmd.ump.edu.pl/sprzet/MiniSeq#text-resizer",
+          "https://cmd.ump.edu.pl/sprzet/Thermo_Scientific_HM_525NX#text-resizer",
+          "https://cmd.ump.edu.pl/sprzet/Thermo_Scientific_HM_340E_i_LEICA_RM2125_RTS#text-resizer",
+          "https://cmd.ump.edu.pl/sprzet/Trans-Blot_Turbo#text-resizer",
+          "https://cmd.ump.edu.pl/sprzet/Biotek_Synergy_H1#text-resizer",
+          "https://cmd.ump.edu.pl/sprzet/JuliBr_NanoEntek#text-resizer",
+          "https://cmd.ump.edu.pl/sprzet/Quantus_Fluorometer#text-resizer",
+          "https://cmd.ump.edu.pl/sprzet/Zeiss_Axio_Vert_A1#text-resizer",
+          "https://cmd.ump.edu.pl/sprzet/ChemiDoc#text-resizer"
+        ];
+
+        function normalizeHref(value) {
+          return String(value || "").trim().toLowerCase();
+        }
+
+        function sortByConfiguredOrder(items) {
+          if (!mainEquipmentOrder.length) return items.slice();
+
+          const rankByHref = new Map();
+          mainEquipmentOrder.forEach(function(href, index) {
+            rankByHref.set(normalizeHref(href), index);
+          });
+
+          return items.slice().sort(function(a, b) {
+            const rankA = rankByHref.has(normalizeHref(a.href)) ? rankByHref.get(normalizeHref(a.href)) : Number.MAX_SAFE_INTEGER;
+            const rankB = rankByHref.has(normalizeHref(b.href)) ? rankByHref.get(normalizeHref(b.href)) : Number.MAX_SAFE_INTEGER;
+            return rankA - rankB;
+          });
+        }
+
         function collectLegacyItems(grid) {
           return Array.from(grid.querySelectorAll(":scope > a"))
             .map(function(link) {
@@ -1458,7 +1501,8 @@
           if (!grid) return;
 
           const legacyItems = collectLegacyItems(grid);
-          const allItems = prependedEquipment.concat(legacyItems);
+          const orderedLegacyItems = sortByConfiguredOrder(legacyItems);
+          const allItems = prependedEquipment.concat(orderedLegacyItems);
           grid.innerHTML = "";
 
           allItems.forEach(function(item, index) {
