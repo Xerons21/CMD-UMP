@@ -151,9 +151,6 @@
 - [Parametr 4]
 `,
 
-      // Opcjonalne: dodatkowy HTML pod lista specyfikacji (np. obrazek)
-      specificationExtraHtml: '',
-
       applicationsList: `
 - [Zastosowanie 1]
 - [Zastosowanie 2]
@@ -198,7 +195,6 @@
         <h3 style="color: #2980b9; margin-top: 0; padding-bottom: 8px; margin-bottom: 20px; font-size: clamp(1.1em, 3.5vw, 1.3em); border-bottom: 2px solid #30c4f4;">Specyfikacja techniczna</h3>
         <div style="background: rgba(255,255,255,0.7); padding: 15px; border-radius: 10px;">
           <div id="specification-list"></div>
-          <div id="specification-extra" style="display: none; margin-top: 12px;"></div>
         </div>
       </div>
     </div>
@@ -521,7 +517,6 @@
       renderGalleryVideos();
       renderLinks();
       renderOptionalHtml('intro-extra', CONTENT.introExtraHtml || '');
-      renderOptionalHtml('specification-extra', CONTENT.specificationExtraHtml || '');
       renderOptionalHtml('applications-extra', CONTENT.applicationsExtraHtml || '');
     }
 
