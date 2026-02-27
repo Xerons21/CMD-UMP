@@ -1356,15 +1356,15 @@
         // Dodawaj tutaj nowe sprzęty na początek listy.
         // Wystarczy dopisać nowy obiekt na początku tablicy.
         const prependedEquipment = [
-          {
-            href: "https://cmd.ump.edu.pl/sprzet/nowy-sprzet#text-resizer",
-            target: "_top",
-            ImgSrc: "https://example.com/nowy-sprzet.jpg",
-            imgAlt: "Nowy sprzęt",
-            labelHtml: "Nowy sprzęt<br>(krótki opis)",
-            imgStyle: "max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: cover; border-radius: 10px; pointer-events: none;",
-            labelStyle: "color: #2980b9; font-weight: 600; font-size: 0.85em; line-height: 1.4; text-decoration: none; text-align: center;"
-         }
+        //  {
+           // href: "https://cmd.ump.edu.pl/sprzet/nowy-sprzet#text-resizer",
+           // target: "_top",
+           // imgSrc: "https://example.com/nowy-sprzet.jpg",
+           // imgAlt: "Nowy sprzęt",
+           // labelHtml: "Nowy sprzęt<br>(krótki opis)",
+           // imgStyle: "max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: cover; border-radius: 10px; pointer-events: none;",
+           // labelStyle: "color: #2980b9; font-weight: 600; font-size: 0.85em; line-height: 1.4; text-decoration: none; text-align: center;"
+        // },
         ];
 
         // Główna kolejność kafelków (stan obecny).
@@ -1372,7 +1372,6 @@
         const mainEquipmentOrder = [
           "https://cmd.ump.edu.pl/sprzet/cytoflex_nano#text-resizer",
           "https://cmd.ump.edu.pl/sprzet/promethion2#text-resizer",
-          "https://cmd.ump.edu.pl/sprzet/nowy-sprzet#text-resizer",
           "https://cmd.ump.edu.pl/sprzet/cytoflex#text-resizer",
           "https://cmd.ump.edu.pl/sprzet/mikroskop_konfokalny#text-resizer",
           "https://cmd.ump.edu.pl/sprzet/Maxwell_RSC_48#text-resizer",
@@ -1392,8 +1391,33 @@
           "https://cmd.ump.edu.pl/sprzet/ChemiDoc#text-resizer"
         ];
 
+        function normalizeToken(value) {
+          return String(value || "")
+            .trim()
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .replace(/[_\s]+/g, "-")
+            .replace(/-+/g, "-")
+            .replace(/^-|-$/g, "");
+        }
+
         function normalizeHref(value) {
-          return String(value || "").trim().toLowerCase();
+          const raw = String(value || "").trim();
+          if (!raw) return "";
+
+          let path = raw;
+          try {
+            const parsed = new URL(raw, "https://cmd.ump.edu.pl");
+            path = parsed.pathname || raw;
+          } catch (error) {
+            path = raw.split("#")[0].split("?")[0];
+          }
+
+          path = path.replace(/\/+$/, "");
+          const segments = path.split("/").filter(Boolean);
+          const slug = segments.length ? segments[segments.length - 1] : path;
+          return normalizeToken(slug);
         }
 
         function sortByConfiguredOrder(items) {
@@ -1401,14 +1425,32 @@
 
           const rankByHref = new Map();
           mainEquipmentOrder.forEach(function(href, index) {
-            rankByHref.set(normalizeHref(href), index);
+            const key = normalizeHref(href);
+            if (key) rankByHref.set(key, index);
           });
 
-          return items.slice().sort(function(a, b) {
-            const rankA = rankByHref.has(normalizeHref(a.href)) ? rankByHref.get(normalizeHref(a.href)) : Number.MAX_SAFE_INTEGER;
-            const rankB = rankByHref.has(normalizeHref(b.href)) ? rankByHref.get(normalizeHref(b.href)) : Number.MAX_SAFE_INTEGER;
-            return rankA - rankB;
-          });
+          return items
+            .map(function(item, originalIndex) {
+              return { item: item, originalIndex: originalIndex };
+            })
+            .sort(function(a, b) {
+              const hrefA = normalizeHref(a.item.orderKey || a.item.href);
+              const hrefB = normalizeHref(b.item.orderKey || b.item.href);
+              const hasRankA = rankByHref.has(hrefA);
+              const hasRankB = rankByHref.has(hrefB);
+
+              if (hasRankA && hasRankB) {
+                return rankByHref.get(hrefA) - rankByHref.get(hrefB);
+              }
+              if (hasRankA) return -1;
+              if (hasRankB) return 1;
+
+              // Dla pozycji bez wpisu w mainEquipmentOrder zachowaj bieżącą kolejność.
+              return a.originalIndex - b.originalIndex;
+            })
+            .map(function(entry) {
+              return entry.item;
+            });
         }
 
         function collectLegacyItems(grid) {
@@ -1478,7 +1520,7 @@
 
           const image = document.createElement("img");
           image.setAttribute("loading", "lazy");
-          image.setAttribute("src", item.imgSrc || "");
+          image.setAttribute("src", item.imgSrc || item.ImgSrc || "");
           image.setAttribute("alt", item.imgAlt || "");
           image.setAttribute("style", item.imgStyle || "max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: cover; border-radius: 10px; pointer-events: none;");
           imageWrap.appendChild(image);
@@ -1503,8 +1545,8 @@
           if (!grid) return;
 
           const legacyItems = collectLegacyItems(grid);
-          const orderedLegacyItems = sortByConfiguredOrder(legacyItems);
-          const allItems = prependedEquipment.concat(orderedLegacyItems);
+          const mergedItems = prependedEquipment.concat(legacyItems);
+          const allItems = sortByConfiguredOrder(mergedItems);
           grid.innerHTML = "";
 
           allItems.forEach(function(item, index) {
