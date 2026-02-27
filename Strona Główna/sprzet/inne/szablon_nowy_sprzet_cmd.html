@@ -137,11 +137,15 @@
 
       // Opcjonalne: wideo w galerii (embed URL)
       galleryVideos: [
-        { embedUrl: 'https://www.youtube.com/embed/blBJbhZT8gQ', title: '[Tytul wideo]' }
+        //{ embedUrl: 'https://www.youtube.com/embed/blBJbhZT8gQ', title: '[Tytul wideo]', height: 400 }
       ],
 
-      // Opcjonalne: dodatkowy HTML pod sekcja Wprowadzenie
-      introExtraHtml: '',
+      // Ustawienia sekcji wideo (opcjonalne)
+      galleryVideosConfig: {
+        minWidth: 280,   // minimalna szerokosc kafla (px)
+        gap: 20,         // odstep miedzy kaflami (px)
+        frameHeight: 200 // domyslna wysokosc iframe (px)
+      },
 
       specificationList: `
 - [Parametr 1]
@@ -161,9 +165,6 @@
 - [Zastosowanie 3]
 - [Zastosowanie 4]
 `,
-
-      // Opcjonalne: dodatkowy HTML pod lista mozliwosci
-      applicationsExtraHtml: '',
 
       links: [
         {
@@ -186,7 +187,6 @@
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 30px;">
       <div style="background: linear-gradient(135deg, #e8f4f8 0%, #ffffff 100%); border-radius: 15px; padding: 20px; box-shadow: 0 4px 8px rgba(35,183,245,0.15); border-left: 8px solid #30c4f4;">
         <p id="intro-text" style="color: #2c3e50; font-size: clamp(0.9em, 3vw, 1em); margin: 15px 0;"></p>
-        <div id="intro-extra" style="display: none; margin-top: 12px;"></div>
       </div>
     </div>
 
@@ -207,7 +207,6 @@
         <h3 style="color: #2980b9; margin-top: 0; padding-bottom: 8px; margin-bottom: 20px; font-size: clamp(1.1em, 3.5vw, 1.3em); border-bottom: 2px solid #30c4f4;">Mozliwosci i zastosowania</h3>
         <div style="background: rgba(255,255,255,0.7); padding: 15px; border-radius: 10px;">
           <div id="applications-list"></div>
-          <div id="applications-extra" style="display: none; margin-top: 12px;"></div>
         </div>
       </div>
     </div>
@@ -365,7 +364,13 @@
     function renderGalleryVideos() {
       const videosContainer = document.getElementById('gallery-videos');
       const videos = Array.isArray(CONTENT.galleryVideos) ? CONTENT.galleryVideos : [];
+      const cfg = CONTENT.galleryVideosConfig || {};
+      const minWidth = Number(cfg.minWidth) > 0 ? Number(cfg.minWidth) : 280;
+      const gap = Number(cfg.gap) >= 0 ? Number(cfg.gap) : 20;
+      const defaultFrameHeight = Number(cfg.frameHeight) > 0 ? Number(cfg.frameHeight) : 200;
       videosContainer.innerHTML = '';
+      videosContainer.style.gridTemplateColumns = 'repeat(auto-fit, minmax(' + minWidth + 'px, 1fr))';
+      videosContainer.style.gap = gap + 'px';
 
       if (!videos.length) {
         videosContainer.style.display = 'none';
@@ -386,7 +391,7 @@
 
         const frame = document.createElement('div');
         frame.style.width = '100%';
-        frame.style.height = '200px';
+        frame.style.height = ((Number(video.height) > 0 ? Number(video.height) : defaultFrameHeight)) + 'px';
         frame.style.background = 'white';
         frame.style.borderRadius = '12px';
         frame.style.overflow = 'hidden';
@@ -414,18 +419,6 @@
 
         videosContainer.appendChild(card);
       });
-    }
-
-    function renderOptionalHtml(targetId, html) {
-      const el = document.getElementById(targetId);
-      if (!el) return;
-      if (html && String(html).trim()) {
-        el.innerHTML = html;
-        el.style.display = 'block';
-      } else {
-        el.innerHTML = '';
-        el.style.display = 'none';
-      }
     }
 
     function renderLinks() {
@@ -534,8 +527,6 @@
       renderGallery();
       renderGalleryVideos();
       renderLinks();
-      renderOptionalHtml('intro-extra', CONTENT.introExtraHtml || '');
-      renderOptionalHtml('applications-extra', CONTENT.applicationsExtraHtml || '');
     }
 
     window.addEventListener('load', function() {
