@@ -124,7 +124,7 @@
         - poziom 2
           - poziom 3
 
-      Mozesz uzywac HTML w tresci, np. <strong>tekst</strong>
+      Mozesz uzywac HTML w tresci, np. <strong>tekst</strong> oraz możesz korzystać z div itp przykład niżej
     */
     const CONTENT = {
       introHtml: '<strong>[Nazwa urzadzenia]</strong> to [krotki opis urzadzenia i jego roli].',
@@ -137,7 +137,7 @@
 
       // Opcjonalne: wideo w galerii (embed URL)
       galleryVideos: [
-        // { embedUrl: 'https://fast.wistia.net/embed/iframe/xyz?seo=false&videoFoam=true', title: '[Tytul wideo]' }
+        { embedUrl: 'https://www.youtube.com/embed/blBJbhZT8gQ', title: '[Tytul wideo]' }
       ],
 
       // Opcjonalne: dodatkowy HTML pod sekcja Wprowadzenie
@@ -148,13 +148,16 @@
 - [Parametr 2]
   - [Podpunkt do parametru 2]
 - [Parametr 3]
-- [Parametr 4]
+- [Parametr 4] <br><img src="https://cdn-icons-png.flaticon.com/512/724/724933.png" alt="Ikona" style="width:20px;height:20px;vertical-align:middle;margin-left:5px;">
 `,
 
       applicationsList: `
 - [Zastosowanie 1]
 - [Zastosowanie 2]
   - [Podpunkt do zastosowania 2]
+  <div style="margin:10px 0;">
+  <img src="" alt="Schemat" style="max-width:100%;height:auto;border-radius:10px;">
+</div>
 - [Zastosowanie 3]
 - [Zastosowanie 4]
 `,
@@ -249,6 +252,20 @@
         const match = rawLine.match(/^(\s*)-\s+(.*)$/);
 
         if (!match) {
+          const htmlMatch = rawLine.match(/^(\s*)(<[\s\S]*>)\s*$/);
+          if (htmlMatch) {
+            const indent = htmlMatch[1].length;
+            const htmlValue = htmlMatch[2].trim();
+            const item = { text: htmlValue, children: [], noBullet: true };
+
+            while (stack.length > 1 && indent <= stack[stack.length - 1].indent) {
+              stack.pop();
+            }
+
+            stack[stack.length - 1].items.push(item);
+            return;
+          }
+
           const top = stack[stack.length - 1];
           const last = top.items[top.items.length - 1];
           if (last) last.text += '<br>' + rawLine.trim();
@@ -287,6 +304,7 @@
         bullet.style.color = bulletColor;
         bullet.style.position = 'absolute';
         bullet.style.left = '-20px';
+        if (item.noBullet) bullet.style.display = 'none';
 
         const text = document.createElement('span');
         text.innerHTML = item.text;
