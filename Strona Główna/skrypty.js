@@ -186,7 +186,7 @@
 
 
 // ========================================
-// 5 zmiany menu podstron-podsron
+// 5 zmiany menu podstron-podstron
 // ========================================
 
 document.querySelectorAll('.s-nav--white--categories--category > a').forEach(link => {
@@ -194,13 +194,12 @@ document.querySelectorAll('.s-nav--white--categories--category > a').forEach(lin
     const submenu = document.getElementById(submenuId);
 
     if (submenu) {
-        // szukamy linków w sekcji submenu
         const links = submenu.querySelectorAll('.s-nav--subcategories--links--link');
-        
-        // jeśli brak linków, ukrywamy całe submenu
-        if (!links || links.length === 0) {
+        if (!links.length) {
+            // brak linków – ukrywamy całe submenu
             link.setAttribute('aria-haspopup', 'false');
             submenu.style.display = 'none';
+            submenu.classList.add('is-hidden'); // dodatkowo klasa ukrywająca
         }
     }
 });
