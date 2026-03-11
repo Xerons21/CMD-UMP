@@ -16,7 +16,6 @@
     let fontSize = BASE_FONT_SIZE;
     let totalWidth, requiredMargin;
 
-    // Funkcja pomocnicza do przeliczenia szerokości
     function recalc() {
       totalWidth = lis.reduce((acc, li) => {
         li.style.fontSize = fontSize + 'px';
@@ -26,12 +25,12 @@
         return acc + li.offsetWidth;
       }, 0);
 
-      const freeSpace = menuWidth - totalWidth;
-      requiredMargin = freeSpace / (lis.length + 1);
+      // minimalny margines uwzględniony w obliczeniach
+      requiredMargin = (menuWidth - totalWidth) / (lis.length + 1);
       return requiredMargin;
     }
 
-    // Pętla zmniejszania fontu
+    // zmniejsz font dopóki margines nie będzie >= MIN_MARGIN
     while (fontSize > MIN_FONT_SIZE) {
       if (recalc() < MIN_MARGIN) {
         fontSize -= 1;
@@ -40,27 +39,24 @@
       }
     }
 
-    // Ustawienie marginesów dopiero po ustaleniu fontu
+    // ustaw marginesy, ale ostatni element tylko left
     lis.forEach((li, index) => {
-      li.style.marginLeft = Math.floor(requiredMargin) + 'px';
-      li.style.marginRight = index === lis.length - 1 ? Math.floor(requiredMargin) + 'px' : '0px';
+      li.style.marginLeft = Math.max(Math.floor(requiredMargin), 0) + 'px';
+      li.style.marginRight = '0px';
     });
   }
 
-  // Wywołania
   function delayedAdjust() {
-    requestAnimationFrame(adjustMenu); // odczekaj na render
+    requestAnimationFrame(adjustMenu);
   }
 
   document.addEventListener("DOMContentLoaded", delayedAdjust);
   window.addEventListener('resize', delayedAdjust);
   window.addEventListener('pageshow', delayedAdjust);
 
-  // Obserwator zmian w menu
   const observer = new MutationObserver(delayedAdjust);
   observer.observe(menu, { childList: true, subtree: true });
 
-  // Natychmiastowe dopasowanie
   delayedAdjust();
 })();
 
