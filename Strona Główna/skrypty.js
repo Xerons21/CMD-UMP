@@ -2,20 +2,46 @@
 // ========================================
 // 1️⃣ Naprawa menu CMS
 // ========================================
-(function menuFix() {
-  function fixMenu() {
-    document.querySelectorAll('.s-nav--white--categories--category')
-      .forEach(li => {
-        li.style.setProperty('margin-left', '20px', 'important');
-        li.style.setProperty('display', 'inline-block', 'important');
-        li.style.setProperty('vertical-align', 'middle', 'important');
-      });
+(function dynamicMenu() {
+  function adjustMenu() {
+    const ul = document.querySelector('.s-nav--white--categories');
+    if (!ul) return;
+
+    const items = Array.from(ul.children);
+    if (!items.length) return;
+
+    // Wymiary belki
+    const menuWidth = 1300; // szerokość menu w px
+    const liWidth = 70;     // szerokość pojedynczego elementu
+
+    // Obliczamy odstęp między elementami
+    const totalLiWidth = liWidth * items.length;
+    const space = menuWidth - totalLiWidth;
+    const margin = Math.floor(space / (items.length + 1)); // równy odstęp po bokach i między
+
+    // Ustawiamy style dynamicznie
+    ul.style.display = 'flex';
+    ul.style.justifyContent = 'flex-start';
+    ul.style.alignItems = 'center';
+    ul.style.padding = '0'; // w razie czego reset
+    ul.style.margin = '0';
+
+    items.forEach(li => {
+      li.style.width = liWidth + 'px';
+      li.style.marginLeft = margin + 'px';
+      li.style.marginRight = '0'; // lewy margines wystarczy
+      li.style.display = 'inline-block';
+      li.style.verticalAlign = 'middle';
+    });
+
+    // Pierwszy element dostaje dodatkowy lewy margines
+    if (items[0]) items[0].style.marginLeft = margin + 'px';
   }
 
-  document.addEventListener("DOMContentLoaded", fixMenu);
+  document.addEventListener("DOMContentLoaded", adjustMenu);
 
-  // Nasłuch na zmiany DOM, jeśli CMS przebuduje menu później
-  const observer = new MutationObserver(fixMenu);
+  // Nasłuch na zmiany DOM (jeśli CMS wstawia nowe elementy)
+  const observer = new MutationObserver(adjustMenu);
   observer.observe(document.body, { childList: true, subtree: true });
 })();
 
