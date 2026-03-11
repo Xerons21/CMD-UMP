@@ -183,3 +183,23 @@
   fbIcon.style.background = `url('${linkedInBase64}') no-repeat`;
   fbIcon.style.backgroundSize = '100% 100%';
 })();
+
+
+// ========================================
+// 5 zmiany menu podstron-podsron
+// ========================================
+
+document.querySelectorAll('.s-nav--white--categories--category > a').forEach(link => {
+    const submenuId = link.getAttribute('aria-controls'); // np. "nav-items-8467"
+    const submenu = document.getElementById(submenuId);
+
+    // jeśli submenu istnieje, sprawdzamy czy ma jakiekolwiek linki
+    if (submenu) {
+        const hasLinks = submenu.querySelector('.s-nav--subcategories--links > a');
+        if (!hasLinks) {
+            // jeśli nie ma linków, ustawiamy aria-haspopup false i ukrywamy submenu
+            link.setAttribute('aria-haspopup', 'false');
+            submenu.style.display = 'none';
+        }
+    }
+});
