@@ -193,13 +193,16 @@ document.querySelectorAll('.s-nav--white--categories--category > a').forEach(lin
     const submenuId = link.getAttribute('aria-controls'); // np. "nav-items-8467"
     const submenu = document.getElementById(submenuId);
 
-    // jeśli submenu istnieje, sprawdzamy czy ma jakiekolwiek linki
     if (submenu) {
-        const hasLinks = submenu.querySelector('.s-nav--subcategories--links > a');
-        if (!hasLinks) {
-            // jeśli nie ma linków, ustawiamy aria-haspopup false i ukrywamy submenu
+        // sprawdzamy, czy są linki w divie subcategories--links
+        const links = submenu.querySelectorAll('.s-nav--subcategories--links--link');
+        if (!links || links.length === 0) {
+            // brak linków → ukrywamy submenu
             link.setAttribute('aria-haspopup', 'false');
             submenu.style.display = 'none';
+        } else {
+            // są linki → pokazujemy submenu tylko jeśli nie ma inline style none
+            submenu.style.display = '';
         }
     }
 });
