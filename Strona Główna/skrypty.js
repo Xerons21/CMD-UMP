@@ -190,17 +190,17 @@
 // ========================================
 
 document.querySelectorAll('.s-nav--white--categories--category > a').forEach(link => {
-    const submenuId = link.getAttribute('data-id'); // używamy data-id
+    const submenuId = link.getAttribute('data-id');
     const submenu = document.getElementById(`nav-items-${submenuId}`);
 
     if (submenu) {
-        // sprawdzamy, czy są jakiekolwiek linki w submenu
         const links = submenu.querySelectorAll('.s-nav--subcategories--links--link');
+        
         if (!links.length) {
-            // brak linków → ukrywamy submenu
-            submenu.style.display = 'none';
+            // Brak linków → dodajemy klasę i ustawiamy style
             submenu.classList.add('no-links');
-            link.setAttribute('aria-haspopup', 'false');
+            submenu.style.background = 'transparent';
+            submenu.style.pointerEvents = 'none'; // blokujemy hover
         }
     }
 });
