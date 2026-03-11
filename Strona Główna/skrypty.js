@@ -210,6 +210,7 @@ document.querySelectorAll('.s-nav--white--categories--category > a').forEach(lin
 // ========================================
 
 // znajdź wiersz w stopce
+document.addEventListener("DOMContentLoaded", function() {
 const footerRow = document.querySelector('.s-footer--top--row');
 
 if (footerRow) {
@@ -259,3 +260,4 @@ if (footerRow) {
     const col1 = footerRow.querySelector('.s-footer--top--col1');
     col1.insertAdjacentElement("afterend", cmdCol);
 }
+});
