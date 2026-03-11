@@ -4,17 +4,18 @@
 // ========================================
 (function dynamicMenu() {
   const menu = document.querySelector('.s-nav--white--categories');
-  const MIN_MARGIN = 20; // minimalny odstęp między elementami
-  const BASE_FONT_SIZE = 16; // px, domyślny font
+  const MIN_MARGIN = 20;       // minimalny odstęp między elementami w px
+  const BASE_FONT_SIZE = 18;   // domyślny font w px
+  const MIN_FONT_SIZE = 10;    // minimalny font w px
+  const FONT_START_THRESHOLD = 0.85; // 85% szerokości menu – punkt startu zmniejszania fontu
 
   function adjustMenu() {
     const lis = Array.from(menu.querySelectorAll('.s-nav--white--categories--category'));
     if (!lis.length) return;
 
-    // Obliczamy szerokość całkowitą li i minimalne marginesy
     const menuWidth = menu.offsetWidth;
     let fontSize = BASE_FONT_SIZE;
-    let totalWidth;
+    let totalWidth, requiredMargin, freeSpace;
 
     do {
       totalWidth = lis.reduce((acc, li) => {
@@ -25,14 +26,14 @@
         return acc + li.offsetWidth;
       }, 0);
 
-      // obliczamy, ile miejsca zostaje na marginesy
-      let freeSpace = menuWidth - totalWidth;
-      let requiredMargin = freeSpace / (lis.length + 1);
+      freeSpace = menuWidth - totalWidth;
+      requiredMargin = freeSpace / (lis.length + 1);
 
-      if (requiredMargin < MIN_MARGIN) {
-        fontSize -= 1; // zmniejszamy font
+      // Jeśli zajętość menu przekracza próg lub marginesy są za małe → zmniejszamy font
+      if (totalWidth / menuWidth > FONT_START_THRESHOLD || requiredMargin < MIN_MARGIN) {
+        fontSize -= 1;
       } else {
-        // ustawiamy marginesy równomiernie
+        // Ustawiamy równomierne marginesy między elementami
         lis.forEach((li, index) => {
           li.style.marginLeft = Math.floor(requiredMargin) + 'px';
           li.style.marginRight = index === lis.length - 1 ? Math.floor(requiredMargin) + 'px' : '0px';
@@ -40,7 +41,16 @@
         break;
       }
 
-    } while (fontSize > 8); // minimalny font 8px
+    } while (fontSize > MIN_FONT_SIZE);
+
+    // Na wypadek gdy font osiągnie minimalny rozmiar, nadal ustawiamy marginesy
+    if (fontSize <= MIN_FONT_SIZE) {
+      lis.forEach((li, index) => {
+        li.style.fontSize = MIN_FONT_SIZE + 'px';
+        li.style.marginLeft = Math.floor(MIN_MARGIN) + 'px';
+        li.style.marginRight = index === lis.length - 1 ? Math.floor(MIN_MARGIN) + 'px' : '0px';
+      });
+    }
   }
 
   document.addEventListener("DOMContentLoaded", adjustMenu);
