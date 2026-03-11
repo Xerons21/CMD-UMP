@@ -190,16 +190,17 @@
 // ========================================
 
 document.querySelectorAll('.s-nav--white--categories--category > a').forEach(link => {
-    const submenuId = link.getAttribute('aria-controls');
-    const submenu = document.getElementById(submenuId);
+    const submenuId = link.getAttribute('data-id'); // używamy data-id
+    const submenu = document.getElementById(`nav-items-${submenuId}`);
 
     if (submenu) {
+        // sprawdzamy, czy są jakiekolwiek linki w submenu
         const links = submenu.querySelectorAll('.s-nav--subcategories--links--link');
         if (!links.length) {
-            // brak linków – ukrywamy całe submenu
-            link.setAttribute('aria-haspopup', 'false');
+            // brak linków → ukrywamy submenu
             submenu.style.display = 'none';
-            submenu.classList.add('is-hidden'); // dodatkowo klasa ukrywająca
+            submenu.classList.add('no-links');
+            link.setAttribute('aria-haspopup', 'false');
         }
     }
 });
