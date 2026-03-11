@@ -3,46 +3,52 @@
 // 1️⃣ Naprawa menu CMS
 // ========================================
 (function dynamicMenu() {
+  const menu = document.querySelector('.s-nav--white--categories');
+  const MIN_MARGIN = 20; // minimalny odstęp między elementami
+  const BASE_FONT_SIZE = 16; // px, domyślny font
+
   function adjustMenu() {
-    const ul = document.querySelector('.s-nav--white--categories');
-    if (!ul) return;
+    const lis = Array.from(menu.querySelectorAll('.s-nav--white--categories--category'));
+    if (!lis.length) return;
 
-    const items = Array.from(ul.children);
-    if (!items.length) return;
+    // Obliczamy szerokość całkowitą li i minimalne marginesy
+    const menuWidth = menu.offsetWidth;
+    let fontSize = BASE_FONT_SIZE;
+    let totalWidth;
 
-    // Wymiary belki
-    const menuWidth = 1300; // szerokość menu w px
-    const liWidth = 70;     // szerokość pojedynczego elementu
+    do {
+      totalWidth = lis.reduce((acc, li) => {
+        li.style.fontSize = fontSize + 'px';
+        li.style.whiteSpace = 'nowrap';
+        li.style.display = 'inline-block';
+        li.style.verticalAlign = 'middle';
+        return acc + li.offsetWidth;
+      }, 0);
 
-    // Obliczamy odstęp między elementami
-    const totalLiWidth = liWidth * items.length;
-    const space = menuWidth - totalLiWidth;
-    const margin = Math.floor(space / (items.length + 1)); // równy odstęp po bokach i między
+      // obliczamy, ile miejsca zostaje na marginesy
+      let freeSpace = menuWidth - totalWidth;
+      let requiredMargin = freeSpace / (lis.length + 1);
 
-    // Ustawiamy style dynamicznie
-    ul.style.display = 'flex';
-    ul.style.justifyContent = 'flex-start';
-    ul.style.alignItems = 'center';
-    ul.style.padding = '0'; // w razie czego reset
-    ul.style.margin = '0';
+      if (requiredMargin < MIN_MARGIN) {
+        fontSize -= 1; // zmniejszamy font
+      } else {
+        // ustawiamy marginesy równomiernie
+        lis.forEach((li, index) => {
+          li.style.marginLeft = Math.floor(requiredMargin) + 'px';
+          li.style.marginRight = index === lis.length - 1 ? Math.floor(requiredMargin) + 'px' : '0px';
+        });
+        break;
+      }
 
-    items.forEach(li => {
-      li.style.width = liWidth + 'px';
-      li.style.marginLeft = margin + 'px';
-      li.style.marginRight = '0'; // lewy margines wystarczy
-      li.style.display = 'inline-block';
-      li.style.verticalAlign = 'middle';
-    });
-
-    // Pierwszy element dostaje dodatkowy lewy margines
-    if (items[0]) items[0].style.marginLeft = margin + 'px';
+    } while (fontSize > 8); // minimalny font 8px
   }
 
   document.addEventListener("DOMContentLoaded", adjustMenu);
+  window.addEventListener('resize', adjustMenu);
 
-  // Nasłuch na zmiany DOM (jeśli CMS wstawia nowe elementy)
+  // Obserwator zmian w menu
   const observer = new MutationObserver(adjustMenu);
-  observer.observe(document.body, { childList: true, subtree: true });
+  observer.observe(menu, { childList: true, subtree: true });
 })();
 
 
