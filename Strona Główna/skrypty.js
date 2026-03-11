@@ -82,7 +82,7 @@
 
 
 // ========================================
-// 2️⃣ Logo (dynamiczne dodanie + responsywność)
+// 3 Logo (dynamiczne dodanie + responsywność)
 // ========================================
 (function addLogo() {
   document.addEventListener("DOMContentLoaded", function () {
