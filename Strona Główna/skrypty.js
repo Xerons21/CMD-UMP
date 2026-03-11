@@ -190,19 +190,17 @@
 // ========================================
 
 document.querySelectorAll('.s-nav--white--categories--category > a').forEach(link => {
-    const submenuId = link.getAttribute('aria-controls'); // np. "nav-items-8467"
+    const submenuId = link.getAttribute('aria-controls');
     const submenu = document.getElementById(submenuId);
 
     if (submenu) {
-        // sprawdzamy, czy są linki w divie subcategories--links
+        // szukamy linków w sekcji submenu
         const links = submenu.querySelectorAll('.s-nav--subcategories--links--link');
+        
+        // jeśli brak linków, ukrywamy całe submenu
         if (!links || links.length === 0) {
-            // brak linków → ukrywamy submenu
             link.setAttribute('aria-haspopup', 'false');
             submenu.style.display = 'none';
-        } else {
-            // są linki → pokazujemy submenu tylko jeśli nie ma inline style none
-            submenu.style.display = '';
         }
     }
 });
