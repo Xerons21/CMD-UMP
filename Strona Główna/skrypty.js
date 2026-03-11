@@ -6,6 +6,7 @@
   const menu = document.querySelector('.s-nav--white--categories');
   const MIN_MARGIN = 20; // minimalny odstęp między elementami
   const BASE_FONT_SIZE = 18; // domyślny font
+  const MIN_FONT_SIZE = 10;
 
   function adjustMenu() {
     const lis = Array.from(menu.querySelectorAll('.s-nav--white--categories--category'));
@@ -13,9 +14,10 @@
 
     const menuWidth = menu.offsetWidth;
     let fontSize = BASE_FONT_SIZE;
-    let totalWidth;
+    let totalWidth, requiredMargin;
 
-    do {
+    // Funkcja pomocnicza do przeliczenia szerokości
+    function recalc() {
       totalWidth = lis.reduce((acc, li) => {
         li.style.fontSize = fontSize + 'px';
         li.style.whiteSpace = 'nowrap';
@@ -24,31 +26,42 @@
         return acc + li.offsetWidth;
       }, 0);
 
-      let freeSpace = menuWidth - totalWidth;
-      let requiredMargin = freeSpace / (lis.length + 1);
+      const freeSpace = menuWidth - totalWidth;
+      requiredMargin = freeSpace / (lis.length + 1);
+      return requiredMargin;
+    }
 
-      if (requiredMargin < MIN_MARGIN) {
+    // Pętla zmniejszania fontu
+    while (fontSize > MIN_FONT_SIZE) {
+      if (recalc() < MIN_MARGIN) {
         fontSize -= 1;
       } else {
-        lis.forEach((li, index) => {
-          li.style.marginLeft = Math.floor(requiredMargin) + 'px';
-          li.style.marginRight = index === lis.length - 1 ? Math.floor(requiredMargin) + 'px' : '0px';
-        });
         break;
       }
+    }
 
-    } while (fontSize > 10);
+    // Ustawienie marginesów dopiero po ustaleniu fontu
+    lis.forEach((li, index) => {
+      li.style.marginLeft = Math.floor(requiredMargin) + 'px';
+      li.style.marginRight = index === lis.length - 1 ? Math.floor(requiredMargin) + 'px' : '0px';
+    });
   }
 
   // Wywołania
-  document.addEventListener("DOMContentLoaded", adjustMenu);
-  window.addEventListener('resize', adjustMenu);
-  window.addEventListener('pageshow', adjustMenu); // działa przy powrocie do strony
-  adjustMenu(); // natychmiastowe dopasowanie w momencie ładowania
+  function delayedAdjust() {
+    requestAnimationFrame(adjustMenu); // odczekaj na render
+  }
+
+  document.addEventListener("DOMContentLoaded", delayedAdjust);
+  window.addEventListener('resize', delayedAdjust);
+  window.addEventListener('pageshow', delayedAdjust);
 
   // Obserwator zmian w menu
-  const observer = new MutationObserver(adjustMenu);
+  const observer = new MutationObserver(delayedAdjust);
   observer.observe(menu, { childList: true, subtree: true });
+
+  // Natychmiastowe dopasowanie
+  delayedAdjust();
 })();
 
 
