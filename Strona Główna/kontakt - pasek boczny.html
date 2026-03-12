@@ -67,6 +67,40 @@
                     </a>
 </div>
 
+<!-- Elfsight LinkedIn Feed | Untitled LinkedIn Feed -->
+<p>
+<script src="https://elfsightcdn.com/platform.js" async=""></script>
+</p>
+<div class="elfsight-app-8537d246-613c-4c7a-a43c-d597ea6a4f59" data-elfsight-app-lazy="">&nbsp;</div>
+
+<!-- Skrypt ukrywający link promocyjny i toolbar -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+    const hideElfsightElements = () => {
+        // Ukrywa link promocyjny
+        const promoLink = document.querySelector('a[href*="elfsight.com/linkedin-feed-widget"]');
+        if (promoLink) promoLink.style.display = "none";
+
+        // Ukrywa panel toolbaru widgetu
+        const toolbar = document.querySelector('.eapps-widget-toolbar-panel-wrapper');
+        if (toolbar) toolbar.style.display = "none";
+    };
+
+    // Wywołanie od razu
+    hideElfsightElements();
+
+    // Dla elementów dynamicznych, sprawdzaj co 500ms przez 5 sekund
+    let attempts = 0;
+    const interval = setInterval(() => {
+        hideElfsightElements();
+        attempts++;
+        if (attempts > 10) clearInterval(interval);
+    }, 500);
+
+});
+</script>
+
 <script>
    document.querySelectorAll('a:not(.no-anim)').forEach(function(link) {
     link.addEventListener('mouseover', function() {
