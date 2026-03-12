@@ -1,30 +1,33 @@
 name: Update LinkedIn Feed
 
 on:
-  workflow_dispatch:   # pozwala uruchamiać ręcznie
+  workflow_dispatch: # pozwala uruchomić ręcznie
   schedule:
-    - cron: '0 */4 * * *'  # co 4h
+    - cron: "0 */4 * * *" # co 4 godziny
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repo
+        uses: actions/checkout@v3
 
-      - name: Install Node
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      - run: npm install node-fetch
+      - name: Install dependencies
+        run: npm install
 
-      - run: node cmd-linkedin-feed/scraper.js
+      - name: Run scraper
+        run: node cmd-linkedin-feed/scraper.js
 
       - name: Commit changes
         run: |
           git config --global user.name "bot"
           git config --global user.email "bot@example.com"
-          git add linkedin.json
-          git commit -m "update feed" || exit 0
+          git add cmd-linkedin-feed/linkedin.json
+          git commit -m "Update LinkedIn feed" || exit 0
           git push

@@ -1,34 +1,22 @@
-const fs = require("fs");
-const fetch = require("node-fetch");
+// cmd-linkedin-feed/scraper.js
+import fetch from "node-fetch";
+import fs from "fs";
 
-async function run(){
+const LINKEDIN_URL = "https://www.linkedin.com/company/cmd-ump/posts/";
+const OUTPUT_FILE = "cmd-linkedin-feed/linkedin.json";
 
-const url="https://www.linkedin.com/company/cmd-ump/posts/";
+async function fetchLinkedInFeed() {
+  try {
+    const encodedUrl = encodeURIComponent(LINKEDIN_URL);
+    const response = await fetch(`https://api.allorigins.win/get?url=${encodedUrl}`);
+    const data = await response.json();
 
-const res = await fetch(url,{
-headers:{
-"User-Agent":"Mozilla/5.0"
-}
-});
-
-const html = await res.text();
-
-const posts=[];
-
-const regex=/https:\/\/www\.linkedin\.com\/posts\/[^"]+/g;
-
-let match;
-
-while((match=regex.exec(html))!==null){
-
-posts.push({
-link:match[0]
-});
-
+    // Zawartość strony w data.contents
+    fs.writeFileSync(OUTPUT_FILE, JSON.stringify({ html: data.contents }, null, 2));
+    console.log(`✅ Feed zapisany do ${OUTPUT_FILE}`);
+  } catch (err) {
+    console.error("❌ Błąd pobierania feedu:", err);
+  }
 }
 
-fs.writeFileSync("linkedin.json",JSON.stringify(posts,null,2));
-
-}
-
-run();
+fetchLinkedInFeed();
