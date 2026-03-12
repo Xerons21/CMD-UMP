@@ -19,7 +19,7 @@ jobs:
 
       - run: npm install node-fetch
 
-      - run: node scraper.js
+      - run: node cmd-linkedin-feed/scraper.js
 
       - name: Commit changes
         run: |
