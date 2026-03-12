@@ -8,10 +8,17 @@ const OUTPUT_FILE = "cmd-linkedin-feed/linkedin.json";
 async function fetchLinkedInFeed() {
   try {
     const encodedUrl = encodeURIComponent(LINKEDIN_URL);
-    const response = await fetch(`https://api.allorigins.win/get?url=${encodedUrl}`);
-    const data = await response.json();
+    const res = await fetch(`https://api.allorigins.win/get?url=${encodedUrl}`);
+    const text = await res.text(); // <- zamiast res.json()
 
-    // Zawartość strony w data.contents
+    let data;
+    try {
+      data = JSON.parse(text); // allorigins zwraca JSON z pola 'contents'
+    } catch (err) {
+      console.error("❌ Nie udało się sparsować JSON:", text);
+      return;
+    }
+
     fs.writeFileSync(OUTPUT_FILE, JSON.stringify({ html: data.contents }, null, 2));
     console.log(`✅ Feed zapisany do ${OUTPUT_FILE}`);
   } catch (err) {
