@@ -1,0 +1,28 @@
+<div id="linkedin-feed"></div>
+
+<script>
+
+fetch("https://raw.githubusercontent.com/Xerons21/CMD-UMP/cmd-linkedin-feed/main/linkedin.json")
+.then(r=>r.json())
+.then(posts=>{
+
+const container=document.getElementById("linkedin-feed");
+
+posts.slice(0,3).forEach(p=>{
+
+container.innerHTML+=`
+
+<iframe
+src="https://www.linkedin.com/embed/feed/update/urn:li:share:${p.link.match(/\d+/)[0]}"
+height="520"
+width="100%"
+frameborder="0">
+</iframe>
+
+`;
+
+});
+
+});
+
+</script>
