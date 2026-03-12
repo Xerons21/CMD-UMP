@@ -1,8 +1,9 @@
 name: Update LinkedIn Feed
 
 on:
+  workflow_dispatch:   # pozwala uruchamiać ręcznie
   schedule:
-    - cron: "0 */4 * * *"
+    - cron: '0 */4 * * *'  # co 4h
 
 jobs:
   build:
