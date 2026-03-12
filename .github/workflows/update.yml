@@ -25,9 +25,10 @@ jobs:
         run: node cmd-linkedin-feed/scraper.js
 
       - name: Commit changes
-        run: |
-          git config --global user.name "bot"
-          git config --global user.email "bot@example.com"
-          git add cmd-linkedin-feed/linkedin.json
-          git commit -m "Update LinkedIn feed" || exit 0
-          git push https://x-access-token:${{ secrets.GH_PAT }}@github.com/Xerons21/CMD-UMP.git
+  run: |
+    git config --global user.name "bot"
+    git config --global user.email "bot@example.com"
+    git add cmd-linkedin-feed/linkedin.json
+    git commit -m "Update LinkedIn feed" || exit 0
+    git remote set-url origin https://x-access-token:${{ secrets.GH_PAT }}@github.com/Xerons21/CMD-UMP.git
+    git push origin main
