@@ -281,7 +281,7 @@ document.addEventListener("DOMContentLoaded", function () {
     align-items: center;
     gap: 24px;
     padding-left: 2%;
-    width: 550px;
+    width: 560px;
   }
 
   .footer-separator {
@@ -326,12 +326,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* LINKI */
   .s-footer--top--col2 {
-    margin-top: 25px !important;
+  margin-top: 25px !important;
     width: 100%;
     display: flex;
-    justify-content: center;
-    gap: 35px;
+    gap: 20px;
     flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
   }
 
   .s-footer--top--col2::before {
