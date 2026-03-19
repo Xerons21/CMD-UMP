@@ -208,3 +208,56 @@ document.querySelectorAll('.s-nav--white--categories--category > a').forEach(lin
 // ========================================
 // 6 Dodanie stopki
 // ========================================
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const footerRow = document.querySelector('.s-footer--top--row');
+  const linksCol = document.querySelector('.s-footer--top--col2');
+
+  if (!footerRow || !linksCol) return;
+
+  // Nowa kolumna
+  const cmdCol = document.createElement("div");
+  cmdCol.className = "col s-footer--top--col1 cmd-footer-col";
+
+  cmdCol.innerHTML = `
+    <img class="s-footer--top--col1--logo"
+         src="TU_WSTAW_LOGO_CMD"
+         alt="CMD">
+
+    <div class="s-footer--top--col1--text">
+      <h3 class="s-footer--top--heading">
+        Centrum Medycyny Doświadczalnej
+      </h3>
+
+      <p class="s-footer--top--text">
+        Uniwersytet Medyczny w Poznaniu<br>
+        ul. Rokietnicka 8<br>
+        60-806 Poznań<br>
+        tel. +48 XXX XXX XXX<br>
+        <a href="mailto:cmd@ump.edu.pl">cmd@ump.edu.pl</a>
+      </p>
+    </div>
+  `;
+
+  // Wstawiamy przed kolumną z WISUS
+  footerRow.insertBefore(cmdCol, linksCol);
+
+  // Styl dopasowujący układ
+  const style = document.createElement("style");
+  style.textContent = `
+    .cmd-footer-col {
+      margin-left: 40px;
+    }
+
+    @media (max-width: 1100px) {
+      .cmd-footer-col {
+        display: none;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+
+});
+</script>
