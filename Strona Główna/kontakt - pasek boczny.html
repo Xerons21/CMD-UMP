@@ -67,30 +67,59 @@
                     </a>
 </div>
 
-<!-- Elfsight LinkedIn Feed | Untitled LinkedIn Feed -->
+<!-- Elfsight LinkedIn Feed -->
 <p>
 <script src="https://elfsightcdn.com/platform.js" async=""></script>
 </p>
-<div class="elfsight-app-8537d246-613c-4c7a-a43c-d597ea6a4f59" data-elfsight-app-lazy="">&nbsp;</div>
 
-<!-- Skrypt ukrywający link promocyjny i toolbar -->
+<!-- Kontener dynamiczny -->
+<div id="elfsight-container"></div>
+
+<!-- Wybór widgetu (optymalne 14/14 dni) -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+    const widgetA = "elfsight-app-d5f5f46e-3be9-4b26-a59a-fa959358ef13";
+    const widgetB = "elfsight-app-8537d246-613c-4c7a-a43c-d597ea6a4f59";
+
+    const today = new Date().getDate();
+
+    let selectedWidget;
+
+    // 7–20 = A (14 dni)
+    // 21–6 = B (14 dni w cyklu miesiąca)
+    if (today >= 6 && today <= 20) {
+        selectedWidget = widgetA;
+    } else {
+        selectedWidget = widgetB;
+    }
+
+    const container = document.getElementById("elfsight-container");
+
+    if (container) {
+        const widgetDiv = document.createElement("div");
+        widgetDiv.className = selectedWidget;
+        widgetDiv.setAttribute("data-elfsight-app-lazy", "");
+        container.appendChild(widgetDiv);
+    }
+
+});
+</script>
+
+<!-- Ukrywanie elementów Elfsight -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
 
     const hideElfsightElements = () => {
-        // Ukrywa link promocyjny
         const promoLink = document.querySelector('a[href*="elfsight.com/linkedin-feed-widget"]');
         if (promoLink) promoLink.style.display = "none";
 
-        // Ukrywa panel toolbaru widgetu
         const toolbar = document.querySelector('.eapps-widget-toolbar-panel-wrapper');
         if (toolbar) toolbar.style.display = "none";
     };
 
-    // Wywołanie od razu
     hideElfsightElements();
 
-    // Dla elementów dynamicznych, sprawdzaj co 500ms przez 5 sekund
     let attempts = 0;
     const interval = setInterval(() => {
         hideElfsightElements();
@@ -101,16 +130,23 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
+<!-- Hover effect -->
 <script>
-   document.querySelectorAll('a:not(.no-anim)').forEach(function(link) {
-    link.addEventListener('mouseover', function() {
-        link.style.transform = 'scale(1.05)';
-        link.style.background = 'rgba(250, 255, 255, 0.7)'; // Zmiana tła na ciemniejsze
+document.addEventListener("DOMContentLoaded", function() {
+
+    document.querySelectorAll('a:not(.no-anim)').forEach(function(link) {
+
+        link.addEventListener('mouseover', function() {
+            link.style.transform = 'scale(1.05)';
+            link.style.background = 'rgba(250, 255, 255, 0.7)';
+        });
+
+        link.addEventListener('mouseout', function() {
+            link.style.transform = 'scale(1)';
+            link.style.background = 'rgba(255,255,255,0.7)';
+        });
+
     });
 
-    link.addEventListener('mouseout', function() {
-        link.style.transform = 'scale(1)';
-        link.style.background = 'rgba(255,255,255,0.7)';
-    });
 });
 </script>
